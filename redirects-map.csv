@@ -1,0 +1,47 @@
+source_domain,source_path,destination_path,status,notes
+citadelnutritionconsult.com,/,/,200,Becomes the canonical site — no redirect, other three point here
+citadelnutritionconsult.com,/about-us/,/about-michelle/,301,
+citadelnutritionconsult.com,/book-consultation/,/book/,301,
+citadelnutritionconsult.com,/faq/,/,301,FAQ content merged into homepage FAQ section
+citadelnutritionconsult.com,/joinus/,/communities/,301,
+citadelnutritionconsult.com,/citadel-services-products/,/services/,301,
+citadelnutritionconsult.com,/nutrition-hub/,/learn/,301,
+citadelnutritionconsult.com,/weight-loss/,/services/,301,
+citadelnutritionconsult.com,/diabetes-management-plans/,/services/,301,
+citadelnutritionconsult.com,/calculate-your-bmi/,/,301,BMI calculator tool not in this phase's scope
+cnutriconsult.com,/,/,301,Redesign of citadelnutritionconsult.com — merge duplicate content then retire
+cnutriconsult.com,/about-2/,/about-michelle/,301,
+cnutriconsult.com,/services/,/services/,301,
+cnutriconsult.com,/products/,/shop/,301,
+cnutriconsult.com,/blog/,/blog/,301,becomes standard WP Posts archive
+cnutriconsult.com,/contact/,/book/,301,
+cnutriconsult.com,/dietitian-michelle/,/about-michelle/,301,
+cnutriconsult.com,/dietitians-chefs/,/about-michelle/,301,
+cnutriconsult.com,/partners/,/services/,301,
+cnutriconsult.com,/consultancy/,/services/,301,
+cnutriconsult.com,/diet-plans-ebooks/,/learn/,301,
+cnutriconsult.com,/online-courses/,/learn/,301,
+cnutriconsult.com,/culinary-services/,/services/,301,
+cnutriconsult.com,/corporate-services/,/services/,301,
+cnutriconsult.com,/diet-shop/,/shop/,301,
+cncsmartfood.com,/,/shop/,301,Product/e-commerce arm folded into Shop
+cncsmartfood.com,/about/,/about-michelle/,301,
+cncsmartfood.com,/cnc-products/,/shop/,301,
+cncsmartfood.com,/bulk-purchase/,/shop/,301,
+cncsmartfood.com,/cnc-beverages/,/shop/,301,
+cncsmartfood.com,/shop/,/shop/,301,
+cncsmartfood.com,/physical-stores/,/shop/,301,retail locator not rebuilt this phase; closest live content is the Shop page
+cncsmartfood.com,/contact/,/book/,301,
+cncsmartfood.com,/cart/,/shop/,301,WooCommerce cart takes over
+dietitianmichelle.com,/,/about-michelle/,301,Personal brand landing
+dietitianmichelle.com,/about-dietitian-michelle/,/about-michelle/,301,
+dietitianmichelle.com,/contact/,/book/,301,
+dietitianmichelle.com,/resources/,/learn/,301,
+dietitianmichelle.com,/podcast/,/learn/,301,podcast not rebuilt this phase; closest live content is Learn
+dietitianmichelle.com,/success-stories/,/about-michelle/,301,testimonials section
+dietitianmichelle.com,/weight-loss-plan/,/learn/,301,
+dietitianmichelle.com,/e-books-dietplans/,/learn/,301,
+dietitianmichelle.com,/courses/,/learn/,301,
+dietitianmichelle.com,/affiliate-program/,/communities/,301,now covered by the CNC Affiliate Marketing Group on the Communities page
+dietitianmichelle.com,/nutritional-services/,/services/,301,
+dietitianmichelle.com,/dietitian-michelles-blog/,/blog/,301,becomes standard WP Posts archive

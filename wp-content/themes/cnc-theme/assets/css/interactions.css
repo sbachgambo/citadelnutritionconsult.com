@@ -1,0 +1,63 @@
+/* Motion layer: card lift, button lift, icon pop, scroll-reveal, photo tilt.
+   Ported from the design preview — targets core block markup instead of the
+   preview's custom .card/.btn classes. */
+
+.wp-block-post-template .wp-block-group.has-border,
+.wp-block-query .wp-block-group.has-border {
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.wp-block-post-template .wp-block-group.has-border:hover,
+.wp-block-query .wp-block-group.has-border:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 16px 32px -12px rgba(28,35,33,0.18);
+	border-color: transparent;
+}
+.wp-block-group.has-border:hover .wp-block-post-featured-image img {
+	transform: translateY(-3px) scale(1.08) rotate(-3deg);
+}
+.wp-block-post-featured-image img {
+	transition: transform 0.3s ease;
+}
+
+.wp-element-button,
+.wp-block-button__link {
+	transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.wp-element-button:hover,
+.wp-block-button__link:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 16px -6px rgba(28,35,33,0.35);
+}
+.wp-element-button:active,
+.wp-block-button__link:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+/* Scroll-reveal (applied by assets/js/interactions.js) */
+.cnc-reveal {
+	opacity: 0;
+	transform: translateY(28px);
+	transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.cnc-reveal.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Mouse-tracking 3D tilt (applied by assets/js/interactions.js) */
+.cnc-tilt {
+	transition: transform 0.15s ease-out;
+	transform-style: preserve-3d;
+	will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.cnc-reveal { opacity: 1; transform: none; transition: none; }
+	.wp-block-group.has-border,
+	.wp-element-button,
+	.wp-block-button__link,
+	.cnc-tilt {
+		transition: none;
+	}
+}

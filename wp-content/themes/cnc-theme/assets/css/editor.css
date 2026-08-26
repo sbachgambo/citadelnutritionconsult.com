@@ -1,0 +1,4 @@
+/* Loaded only inside the block editor so authored content previews close to the front end. */
+.editor-styles-wrapper {
+	background: var(--wp--preset--color--base);
+}

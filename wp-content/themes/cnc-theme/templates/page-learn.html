@@ -1,0 +1,45 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+	<!-- wp:post-title {"level":1,"align":"wide"} /-->
+	<!-- wp:post-content /-->
+
+	<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:heading -->
+		<h2>Courses &amp; E-book</h2>
+		<!-- /wp:heading -->
+		<!-- wp:paragraph -->
+		<p>Each digital product below links out to its Selar checkout page — no cart, no on-site payment.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:query {"query":{"perPage":12,"pages":0,"offset":0,"postType":"digital_product","order":"asc","orderBy":"menu_order"},"displayLayout":{"type":"flex","columns":3}} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template -->
+				<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1rem","bottom":"1rem","left":"1rem","right":"1rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
+				<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1rem;padding-right:1rem;padding-bottom:1rem;padding-left:1rem">
+					<!-- wp:post-featured-image {"height":"180px","style":{"border":{"radius":"6px"}}} /-->
+					<!-- wp:post-title {"level":3,"isLink":false} /-->
+					<!-- wp:post-excerpt /-->
+					<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"cnc_price"}}}},"fontSize":"small"} -->
+					<p class="has-small-font-size">Price</p>
+					<!-- /wp:paragraph -->
+					<!-- wp:buttons -->
+					<div class="wp-block-buttons">
+						<!-- wp:button {"metadata":{"bindings":{"url":{"source":"core/post-meta","args":{"key":"cnc_selar_url"}}}}} -->
+						<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#">Buy now on Selar</a></div>
+						<!-- /wp:button -->
+					</div>
+					<!-- /wp:buttons -->
+				</div>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
