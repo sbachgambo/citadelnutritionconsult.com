@@ -29,8 +29,9 @@ wp-content/
   plugins/cnc-core/        Custom post types: Service, Testimonial, FAQ Item, Digital Product
     includes/post-types.php
     includes/meta.php       cnc_price / cnc_selar_url meta on Digital Product, bound into the Learn page pattern via core block bindings (WP 6.5+)
-    includes/seed-content.php   Seeds real starter content on activation — see below
-    seed-assets/             Service icons + e-book covers, sideloaded into the Media Library once, then left alone
+    includes/seed-content.php       Seeds real starter content (Services, Testimonials, FAQ, Digital Products, 3 blog Posts) on activation
+    includes/seed-woocommerce.php   Seeds the real CNC Smartfoods catalog once WooCommerce is detected active — see setup step 6 below
+    seed-assets/             Service icons, e-book covers, blog images, Smartfoods package photos — sideloaded into the Media Library once, then left alone
 ```
 
 Services, testimonials, and FAQ patterns pull live from their CPTs via query loops — adding/editing/reordering entries in wp-admin updates the homepage (and the new `/services/` page) automatically. Digital Products work the same way on `/learn/`, with price and the Selar checkout link editable per-post via the sidebar (bound to the button/price text through core block bindings).
@@ -44,8 +45,9 @@ Services, testimonials, and FAQ patterns pull live from their CPTs via query loo
 3. Activate **CNC Core** (this seeds the starter content — give it a moment, it sideloads ~15 images), then activate the **CNC Theme**.
 4. Appearance → Site Identity: upload `wp-content/themes/cnc-theme/assets/images/brand/cnc-logo.png` as the Custom Logo and `favlogo.png` as the Site Icon. The theme shows its own bundled versions as a fallback until you do, so nothing is blank in the meantime.
 5. Site Editor → Pages: the homepage uses `front-page.html` automatically. Create the pages `/services/`, `/about-michelle/`, `/shop/`, `/learn/`, `/book/` and assign the matching custom template (Services Full Page / — / CNC Smartfoods Landing / Learn Landing / Book a Consultation) from each page's Template dropdown.
-6. Install & configure WooCommerce + a Paystack gateway plugin for `/shop/`.
-7. Spot-check the seeded Services/Testimonials/FAQ/Digital Products screens and adjust copy as needed.
+6. Install & activate **WooCommerce**. CNC Core detects it automatically (via an `admin_init` check, since activation order between the two plugins isn't guaranteed) and seeds the real CNC Smartfoods catalog the first time you load wp-admin afterward — 7 products published with real prices and package photography (Acha Flour, Acha Grains, Bean Flour, CNC Moringa/Cinnamon tea bags, CNC Zobo Drink, CNC Tigernut Drink), plus 4 more saved as **drafts** with no price (Finger Millet, Plantain Smartmix, Tom Brown, CNC Zobo tea bags) — these aren't sold individually on the live site yet, so they stay hidden from customers until you confirm pricing and publish them. Guarded by its own `cnc_core_woocommerce_seeded` option, so it also won't duplicate on reactivation.
+7. Install the official **Paystack** gateway plugin (`woo-paystack` on WordPress.org, published by Paystack — [wordpress.org/plugins/woo-paystack](https://wordpress.org/plugins/woo-paystack/)). Then: WooCommerce → Settings → Payments → enable Paystack → add your Public and Secret keys (Paystack dashboard → Settings → API Keys & Webhooks). Use the **test** keys first and place a trial order before switching to live keys. Set WooCommerce → Settings → General currency to **Nigerian Naira (₦)** if it isn't already, since every seeded price is in Naira.
+8. Spot-check the seeded Services/Testimonials/FAQ/Digital Products/Smartfoods screens and adjust copy, prices, or publish status as needed.
 
 ## Still pending (brief §9)
 
@@ -56,7 +58,8 @@ Services, testimonials, and FAQ patterns pull live from their CPTs via query loo
 - **Diet Padi app store links** — now `https://dietpadi.com` everywhere in both the preview and the theme (header/footer/booking-cta). I searched for a public "Diet Padi" App Store / Google Play listing and found none under that name (only unrelated PADI diving apps and an unrelated calorie-counter app turned up) — either it isn't published under this name yet or isn't public; the client needs to supply the actual listing URLs.
 - **Selar per-product links** — 6 of 9 seeded Digital Products now link to their real, individually-confirmed Selar checkout page (verified by fetching each one directly), with corrected real prices (e.g. Cancer Diet ₦5,000 was ₦10,000, Healing Recipe ₦8,000 was ₦20,000 — both different from my earlier guesses). The remaining 3 (28-Day Challenge bundle, Eat and Don't Eat, Weight Loss Diet Made Easy) weren't found under those exact names in the live storefront listing as of 2026-08-26 — still pointing at the general store page pending confirmation with Michelle.
 - **Shop product prices** — confirmed the live cncsmartfood.com shop currently lists only 9 distinct products; Finger Millet, Plantain Smartmix, Tom Brown, and a separate Zobo tea-bag SKU (as opposed to the bottled Zobo Drink) aren't listed for individual online sale yet, so "TBC" pricing on those is accurate, not a research gap — confirm with the client whether they're in-store-only or not yet launched online.
-- **WooCommerce** — not installed/configured yet; `/shop/`'s Product Collection block has nothing to show until it is.
+- **WooCommerce** — code side is done: `seed-woocommerce.php` populates the real Smartfoods catalog (7 published, 4 draft pending price confirmation) the moment WooCommerce is active, with real package photography. Still needs: WooCommerce itself installed on a live site, the Paystack gateway plugin configured with real API keys (see setup step 7), and a live checkout test.
+- **CNC Communities page** — added to the design preview (`preview/communities.html`, real content from citadelnutritionconsult.com/joinus/: 4 community groups, hospital/clinic partnership, careers) but not yet ported into the WP theme — no `page-communities.html` template/pattern exists yet. The WhatsApp, Paystack, and Google Forms links on that page are all placeholders pending the client's actual URLs.
 - **Redirect map** — see `redirects-map.csv` below; a few rows still need a judgment call.
 
 ## Redirect map (retired domains → new site)
