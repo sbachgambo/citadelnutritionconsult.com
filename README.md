@@ -14,16 +14,24 @@ Before converting to the WP theme, `preview/` is a static, clickable HTML/CSS mo
 
 **The preview has been ported into the actual WordPress theme.** Everything below reflects that — the theme is no longer just a skeleton.
 
+**Real WordPress install test (2026-08-27).** Everything above was verified end-to-end on a real, throwaway local WordPress install (WP 7.1, SQLite backend via the official SQLite Database Integration plugin, PHP 8.3, no MySQL needed) — not just PHP-linted, actually run:
+- CNC Core and CNC Theme both activate with zero fatal errors or warnings in `debug.log`.
+- Content seeding verified by direct count: 9 Services, 4 Testimonials, 5 FAQ, 9 Digital Products, 3 blog Posts, 21 media attachments — all exactly as designed.
+- All 7 pages (front page + Services, About Michelle, Shop, Learn, Book, Communities) return HTTP 200 with no PHP errors in the rendered HTML.
+- The Services pricing table, the Learn page's per-product block bindings (price + Selar link resolving correctly from post meta), the Communities page, and the Diet Padi links all confirmed rendering with real content.
+- WooCommerce installed and activated live; `seed-woocommerce.php` produced exactly 7 published + 4 draft products with real photography, and the draft products correctly stayed hidden from the public `/shop/` page. One benign WooCommerce-core notice appeared in the log (a known translation-loading timing quirk, unrelated to CNC code) — not a functional issue.
+
 ## What's here
 
 ```
 wp-content/
   themes/cnc-theme/       Block-based (FSE) theme — no hardcoded copy/colors
     theme.json             Color palette (official brand green), typography, spacing tokens
-    templates/              front-page, page, single, archive, 404, page-services, page-shop, page-learn, page-book
+    templates/              front-page, page, single, archive, 404, page-services, page-communities, page-shop, page-learn, page-book
     parts/                  header.html (site logo, full nav), footer.html (real contact info, nav, Diet Padi links)
-    patterns/               hero-clinic, services-grid, services-full (new — pricing table), testimonials, about-michelle-teaser,
-                             shop-teaser, learn-teaser, faq, booking-cta — all using real bundled photography, no placehold.co left
+    patterns/               hero-clinic, services-grid, services-full (pricing table), communities-full (groups, partnerships, careers),
+                             testimonials, about-michelle-teaser, shop-teaser, learn-teaser, faq, booking-cta — all using real bundled
+                             photography, no placehold.co left
     assets/images/          brand/ (logo, favicon), icons/ (9 real 3D service icons), patterns/ (4 default hero/teaser photos)
     assets/css/interactions.css, assets/js/interactions.js   Hover-lift, scroll-reveal, and mouse-tilt motion layer ported from the preview
   plugins/cnc-core/        Custom post types: Service, Testimonial, FAQ Item, Digital Product
@@ -58,10 +66,10 @@ Services, testimonials, and FAQ patterns pull live from their CPTs via query loo
 - **Diet Padi app store links** — now `https://dietpadi.com` everywhere in both the preview and the theme (header/footer/booking-cta). I searched for a public "Diet Padi" App Store / Google Play listing and found none under that name (only unrelated PADI diving apps and an unrelated calorie-counter app turned up) — either it isn't published under this name yet or isn't public; the client needs to supply the actual listing URLs.
 - **Selar per-product links** — 6 of 9 seeded Digital Products now link to their real, individually-confirmed Selar checkout page (verified by fetching each one directly), with corrected real prices (e.g. Cancer Diet ₦5,000 was ₦10,000, Healing Recipe ₦8,000 was ₦20,000 — both different from my earlier guesses). The remaining 3 (28-Day Challenge bundle, Eat and Don't Eat, Weight Loss Diet Made Easy) weren't found under those exact names in the live storefront listing as of 2026-08-26 — still pointing at the general store page pending confirmation with Michelle.
 - **Shop product prices** — confirmed the live cncsmartfood.com shop currently lists only 9 distinct products; Finger Millet, Plantain Smartmix, Tom Brown, and a separate Zobo tea-bag SKU (as opposed to the bottled Zobo Drink) aren't listed for individual online sale yet, so "TBC" pricing on those is accurate, not a research gap — confirm with the client whether they're in-store-only or not yet launched online.
-- **WooCommerce** — code side is done: `seed-woocommerce.php` populates the real Smartfoods catalog (7 published, 4 draft pending price confirmation) the moment WooCommerce is active, with real package photography. Still needs: WooCommerce itself installed on a live site, the Paystack gateway plugin configured with real API keys (see setup step 7), and a live checkout test.
-- **CNC Communities page** — added to the design preview (`preview/communities.html`, real content from citadelnutritionconsult.com/joinus/: 4 community groups, hospital/clinic partnership, careers) but not yet ported into the WP theme — no `page-communities.html` template/pattern exists yet. The WhatsApp, Paystack, and Google Forms links on that page are all placeholders pending the client's actual URLs.
-- **Redirect map** — see `redirects-map.csv` below; a few rows still need a judgment call.
+- **WooCommerce** — verified working end-to-end on a real install (see above): `seed-woocommerce.php` populates the real Smartfoods catalog (7 published, 4 draft pending price confirmation) the moment WooCommerce is active, with real package photography, correctly rendering on `/shop/`. Still needs: WooCommerce on the *actual* production site, the Paystack gateway plugin configured with real API keys (see setup step 7), and a live checkout test with real money.
+- **CNC Communities page** — done in both the design preview (`preview/communities.html`) and the WP theme (`page-communities.html` template + `communities-full.php` pattern, nav updated everywhere), with real content from citadelnutritionconsult.com/joinus/: 4 community groups, hospital/clinic partnership, careers. The WhatsApp, Paystack, and Google Forms links on that page are all placeholders (`href="#"`) pending the client's actual URLs.
+- **Redirect map** — see `redirects-map.csv` below; fully resolved, no outstanding judgment calls.
 
 ## Redirect map (retired domains → new site)
 
-See [redirects-map.csv](redirects-map.csv) — built from each live site's actual navigation/page URLs (crawled 2026-08-25), not a guessed section-level mapping. A few rows are flagged "verify" where the new IA doesn't have an obvious 1:1 target (e.g. dietitianmichelle.com's `/podcast/`, `/affiliate-program/`). Import into Railway/host-level redirect rules (or a redirection plugin) before DNS cutover.
+See [redirects-map.csv](redirects-map.csv) — built from each live site's actual navigation/page URLs (crawled 2026-08-25), not a guessed section-level mapping. Every row has a resolved destination now (e.g. `/affiliate-program/` and `/joinus/` both now correctly point at the new `/communities/` page). Import into Railway/host-level redirect rules (or a redirection plugin) before DNS cutover.
