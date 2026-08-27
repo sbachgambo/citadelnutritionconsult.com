@@ -116,6 +116,7 @@
 	"customTemplates": [
 		{ "name": "page-services", "title": "Services Full Page", "postTypes": ["page"] },
 		{ "name": "page-communities", "title": "CNC Communities", "postTypes": ["page"] },
+		{ "name": "page-blog", "title": "Blog Listing", "postTypes": ["page"] },
 		{ "name": "page-shop", "title": "CNC Smartfoods Landing", "postTypes": ["page"] },
 		{ "name": "page-learn", "title": "Learn Landing", "postTypes": ["page"] },
 		{ "name": "page-book", "title": "Book a Consultation", "postTypes": ["page"] }
