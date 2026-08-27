@@ -243,6 +243,14 @@ function cnc_core_seed_content() {
 			'image'   => 'healing-recipes.jpg',
 			'url'     => 'https://dietitianmichelle.selar.com/healingrecipe',
 		),
+		array(
+			'title'   => 'CNC Refresh Brochure',
+			'excerpt' => 'A free downloadable brochure featuring CNC\'s meal options — a no-risk way to try before you buy.',
+			'price'   => 'Free',
+			// No cover image on file yet — upload one via the editor sidebar before launch.
+			'image'   => '',
+			'url'     => 'https://dietitianmichelle.selar.com/1wk361',
+		),
 	);
 
 	foreach ( $digital_products as $order => $product ) {
@@ -260,13 +268,15 @@ function cnc_core_seed_content() {
 			update_post_meta( $post_id, 'cnc_price', $product['price'] );
 			update_post_meta( $post_id, 'cnc_selar_url', $product['url'] );
 
-			$attach_id = cnc_core_sideload_local_image(
-				CNC_CORE_PATH . 'seed-assets/digital-products/' . $product['image'],
-				$post_id,
-				$product['title'] . ' cover'
-			);
-			if ( $attach_id ) {
-				set_post_thumbnail( $post_id, $attach_id );
+			if ( ! empty( $product['image'] ) ) {
+				$attach_id = cnc_core_sideload_local_image(
+					CNC_CORE_PATH . 'seed-assets/digital-products/' . $product['image'],
+					$post_id,
+					$product['title'] . ' cover'
+				);
+				if ( $attach_id ) {
+					set_post_thumbnail( $post_id, $attach_id );
+				}
 			}
 		}
 	}

@@ -1,47 +1,67 @@
 source_domain,source_path,destination_path,status,notes
-citadelnutritionconsult.com,/,/,200,Becomes the canonical site — no redirect, other three point here
+citadelnutritionconsult.com,/,/,200,Becomes the canonical site — no redirect; other three point here
 citadelnutritionconsult.com,/about-us/,/about-michelle/,301,
 citadelnutritionconsult.com,/book-consultation/,/book/,301,
 citadelnutritionconsult.com,/faq/,/,301,FAQ content merged into homepage FAQ section
 citadelnutritionconsult.com,/joinus/,/communities/,301,
 citadelnutritionconsult.com,/citadel-services-products/,/services/,301,
-citadelnutritionconsult.com,/nutrition-hub/,/learn/,301,
+citadelnutritionconsult.com,/nutrition-hub/,/shop/,301,Checked live — combines Smart Foods products (now on Shop) and e-books/free brochure (now on Learn incl. the CNC Refresh Brochure); no distinct content left unmigrated
 citadelnutritionconsult.com,/weight-loss/,/services/,301,
 citadelnutritionconsult.com,/diabetes-management-plans/,/services/,301,
 citadelnutritionconsult.com,/calculate-your-bmi/,/,301,BMI calculator tool not in this phase's scope
+citadelnutritionconsult.com,/career/,/communities/,301,Real "Virtual Dietitian (Remote)" opening now listed in the Communities Careers section
+citadelnutritionconsult.com,/contact-us/,/book/,301,
+citadelnutritionconsult.com,/book-a-consultation/,/book/,301,Duplicate of /book-consultation/ on the same domain
+citadelnutritionconsult.com,/cancel-booking/,/book/,301,
+citadelnutritionconsult.com,/nutritional-services/,/services/,301,
+citadelnutritionconsult.com,/partner-with-us/,/communities/,301,Gym and Chef partnership tracks now listed alongside Hospital on the Communities page
+citadelnutritionconsult.com,/dietpadi-waitlist/,/book/,301,Reveals Diet Padi is still pre-launch/waitlist stage — not publicly downloadable yet; flagged for the client separately
+citadelnutritionconsult.com,/cnc-old-homepage/,/,301,Archived prior homepage version; superseded
+citadelnutritionconsult.com,/standard-wtls-payments-approved/,/services/,301,Paystack payment-confirmation page (auto-generated not content) — new site's checkout flow replaces this
+citadelnutritionconsult.com,/customized-wtls-payments-approved/,/services/,301,Paystack payment-confirmation page (auto-generated not content)
+citadelnutritionconsult.com,/executive-wtls-payments-approved/,/services/,301,Paystack payment-confirmation page (auto-generated not content)
+citadelnutritionconsult.com,/standard-diabetes-payment-approved/,/services/,301,Paystack payment-confirmation page (auto-generated not content)
+citadelnutritionconsult.com,/customized-diabetes-payment-approved/,/services/,301,Paystack payment-confirmation page (auto-generated not content)
+citadelnutritionconsult.com,/executive-diabetes-payment-approved/,/services/,301,Paystack payment-confirmation page (auto-generated not content)
 cnutriconsult.com,/,/,301,Redesign of citadelnutritionconsult.com — merge duplicate content then retire
 cnutriconsult.com,/about-2/,/about-michelle/,301,
 cnutriconsult.com,/services/,/services/,301,
 cnutriconsult.com,/products/,/shop/,301,
-cnutriconsult.com,/blog/,/blog/,301,becomes standard WP Posts archive
+cnutriconsult.com,/blog/,/blog/,301,Becomes standard WP Posts archive
 cnutriconsult.com,/contact/,/book/,301,
 cnutriconsult.com,/dietitian-michelle/,/about-michelle/,301,
-cnutriconsult.com,/dietitians-chefs/,/about-michelle/,301,
-cnutriconsult.com,/partners/,/services/,301,
+cnutriconsult.com,/dietitians-chefs/,/about-michelle/,301,Real team roster (6 dietitians + 8 chefs) now on the About Michelle page's "Meet the wider team" section
+cnutriconsult.com,/partners/,/communities/,301,
 cnutriconsult.com,/consultancy/,/services/,301,
 cnutriconsult.com,/diet-plans-ebooks/,/learn/,301,
 cnutriconsult.com,/online-courses/,/learn/,301,
 cnutriconsult.com,/culinary-services/,/services/,301,
 cnutriconsult.com,/corporate-services/,/services/,301,
 cnutriconsult.com,/diet-shop/,/shop/,301,
+cnutriconsult.com,/shop-2/,/shop/,301,Duplicate/test WooCommerce page
+cnutriconsult.com,/checkout-2/,/shop/,301,WooCommerce auto-generated page; not content
+cnutriconsult.com,/cart-2/,/shop/,301,WooCommerce auto-generated page; not content
+cnutriconsult.com,/single-post-page/,/blog/,301,Theme demo page; not real content
+cnutriconsult.com,/contact-2/,/book/,301,Duplicate of /contact/ on the same domain
+cnutriconsult.com,/reviews/,/,301,Checked live — page is broken/unfinished template content (Lorem Ipsum wrong industry fake reviewer names); nothing to migrate; real testimonials already on the homepage
 cncsmartfood.com,/,/shop/,301,Product/e-commerce arm folded into Shop
 cncsmartfood.com,/about/,/about-michelle/,301,
 cncsmartfood.com,/cnc-products/,/shop/,301,
 cncsmartfood.com,/bulk-purchase/,/shop/,301,
 cncsmartfood.com,/cnc-beverages/,/shop/,301,
 cncsmartfood.com,/shop/,/shop/,301,
-cncsmartfood.com,/physical-stores/,/shop/,301,retail locator not rebuilt this phase; closest live content is the Shop page
+cncsmartfood.com,/physical-stores/,/shop/,301,Retail locator not rebuilt this phase; closest live content is the Shop page
 cncsmartfood.com,/contact/,/book/,301,
 cncsmartfood.com,/cart/,/shop/,301,WooCommerce cart takes over
 dietitianmichelle.com,/,/about-michelle/,301,Personal brand landing
 dietitianmichelle.com,/about-dietitian-michelle/,/about-michelle/,301,
 dietitianmichelle.com,/contact/,/book/,301,
 dietitianmichelle.com,/resources/,/learn/,301,
-dietitianmichelle.com,/podcast/,/learn/,301,podcast not rebuilt this phase; closest live content is Learn
-dietitianmichelle.com,/success-stories/,/about-michelle/,301,testimonials section
+dietitianmichelle.com,/podcast/,/learn/,301,Podcast not rebuilt this phase; closest live content is Learn
+dietitianmichelle.com,/success-stories/,/about-michelle/,301,Testimonials section
 dietitianmichelle.com,/weight-loss-plan/,/learn/,301,
 dietitianmichelle.com,/e-books-dietplans/,/learn/,301,
 dietitianmichelle.com,/courses/,/learn/,301,
-dietitianmichelle.com,/affiliate-program/,/communities/,301,now covered by the CNC Affiliate Marketing Group on the Communities page
+dietitianmichelle.com,/affiliate-program/,/communities/,301,Now covered by the CNC Affiliate Marketing Group on the Communities page
 dietitianmichelle.com,/nutritional-services/,/services/,301,
-dietitianmichelle.com,/dietitian-michelles-blog/,/blog/,301,becomes standard WP Posts archive
+dietitianmichelle.com,/dietitian-michelles-blog/,/blog/,301,Becomes standard WP Posts archive

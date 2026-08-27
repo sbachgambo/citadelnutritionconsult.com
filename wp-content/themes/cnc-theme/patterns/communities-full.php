@@ -190,6 +190,58 @@
 </section>
 <!-- /wp:group -->
 
+<!-- wp:group {"tagName":"section","align":"wide","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignwide">
+
+	<!-- wp:heading {"textAlign":"center"} -->
+	<h2 class="has-text-align-center">More Ways to Partner</h2>
+	<!-- /wp:heading -->
+	<!-- wp:paragraph {"align":"center"} -->
+	<p class="has-text-align-center">Five partnership tracks in total — see above for Hospital, and the community groups above for Dietitian and Affiliate tracks.</p>
+	<!-- /wp:paragraph -->
+
+	<!-- wp:columns {"style":{"spacing":{"margin":{"top":"2rem"}}}} -->
+	<div class="wp-block-columns" style="margin-top:2rem">
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
+			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+				<!-- wp:heading {"level":3} -->
+				<h3>Gym Partnership</h3>
+				<!-- /wp:heading -->
+				<!-- wp:paragraph -->
+				<p>Nutrition plans and wellness services that complement your fitness offerings — a natural pairing for member retention and results.</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline"} -->
+					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#">Partner With Us</a></div>
+				<!-- /wp:button --></div><!-- /wp:buttons -->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:column -->
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
+			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+				<!-- wp:heading {"level":3} -->
+				<h3>Chef Partnership</h3>
+				<!-- /wp:heading -->
+				<!-- wp:paragraph -->
+				<p>Training and recipe development for culinary professionals — bring condition-specific nutrition expertise into your kitchen.</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline"} -->
+					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#">Partner With Us</a></div>
+				<!-- /wp:button --></div><!-- /wp:buttons -->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:column -->
+	</div>
+	<!-- /wp:columns -->
+
+</section>
+<!-- /wp:group -->
+
 <!-- wp:group {"tagName":"section","align":"full","backgroundColor":"contrast","textColor":"base","style":{"spacing":{"padding":{"top":"var:custom|spacing|section-gap","bottom":"var:custom|spacing|section-gap","left":"1.5rem","right":"1.5rem"}}},"layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull has-base-color has-contrast-background-color has-text-color has-background" style="padding-top:var(--wp--custom--spacing--section-gap);padding-right:1.5rem;padding-bottom:var(--wp--custom--spacing--section-gap);padding-left:1.5rem">
 
@@ -221,11 +273,16 @@
 			<!-- wp:group {"backgroundColor":"base","textColor":"contrast","style":{"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"layout":{"type":"default"}} -->
 			<div class="wp-block-group has-contrast-color has-base-background-color has-text-color has-background" style="padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:paragraph {"fontSize":"small"} -->
-				<p class="has-small-font-size"><strong>Current openings</strong></p>
+				<p class="has-small-font-size"><strong>Current opening: Virtual Dietitian (Remote)</strong></p>
 				<!-- /wp:paragraph -->
 				<!-- wp:paragraph -->
-				<p>No open positions right now — check back soon, or join the Professional Community above to hear about openings first.</p>
+				<p>2+ years of nutrition counseling experience, strong communication skills, comfort with virtual consultation platforms, and a genuine commitment to healthy living.</p>
 				<!-- /wp:paragraph -->
+				<!-- wp:buttons -->
+				<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"base","textColor":"contrast"} -->
+					<div class="wp-block-button"><a class="wp-block-button__link has-contrast-color has-base-background-color has-text-color has-background wp-element-button" href="https://forms.gle/GUBFkEYP34RNibBp9" target="_blank" rel="noopener">Apply Now</a></div>
+				<!-- /wp:button --></div>
+				<!-- /wp:buttons -->
 			</div>
 			<!-- /wp:group -->
 		</div>
