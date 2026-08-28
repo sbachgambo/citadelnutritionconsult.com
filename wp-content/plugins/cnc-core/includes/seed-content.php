@@ -54,7 +54,7 @@ function cnc_core_seed_content() {
 	$services = array(
 		array(
 			'title'   => 'One-on-One Consultations',
-			'content' => 'Personalized guidance from Dietitian Michelle (RDN) — customized meal planning and ongoing support, in-clinic or virtual via Zoom, Google Meet, or WhatsApp video.',
+			'content' => 'Customized guidance from Dietitian Michelle (RDN) — customized meal planning and ongoing support, in-clinic or virtual via Zoom, Google Meet, or WhatsApp video.',
 			'icon'    => 'consultations.png',
 		),
 		array(
@@ -69,7 +69,7 @@ function cnc_core_seed_content() {
 		),
 		array(
 			'title'   => 'Culinary Services',
-			'content' => 'Personalized diet calculation and hands-on cooking instruction — recipe modification and meal adaptation for diabetes, weight loss, cancer, kidney disease, and heart conditions while preserving cultural authenticity. ₦20,000 per recipe (staff training) or ₦7,000 per prepared meal.',
+			'content' => 'Customized diet calculation and hands-on cooking instruction — recipe modification and meal adaptation for diabetes, weight loss, cancer, kidney disease, and heart conditions while preserving cultural authenticity. ₦20,000 per recipe (staff training) or ₦7,000 per prepared meal.',
 			'icon'    => 'culinary.png',
 		),
 		array(
@@ -79,12 +79,12 @@ function cnc_core_seed_content() {
 		),
 		array(
 			'title'   => 'Group Coaching & Follow-Up',
-			'content' => 'Community-based support for clients with shared goals, plus dietitian-led progress monitoring and accountability check-ins. ₦30,000 for a 30-day accountability program (daily follow-ups, meal reviews, weekly sessions).',
+			'content' => 'Community-based support for clients with shared goals, plus dietitian-led progress monitoring and accountability check-ins. ₦50,000 for a 30-day accountability program (daily follow-ups, meal reviews, weekly sessions).',
 			'icon'    => 'group-coaching.png',
 		),
 		array(
 			'title'   => 'Therapeutic Food Packs',
-			'content' => 'Personalized meal packages for chronic illness recovery, digestive disorders, and weight management — from CNC Smart Foods.',
+			'content' => 'Customized meal packages for chronic illness recovery, digestive disorders, and weight management — from CNC Smart Foods.',
 			'icon'    => 'therapeutic-food.png',
 		),
 		array(
@@ -94,7 +94,7 @@ function cnc_core_seed_content() {
 		),
 		array(
 			'title'   => 'Nutritional Assessment',
-			'content' => 'Blood pressure and blood sugar testing plus a BMI checkup — the starting point for any personalized plan.',
+			'content' => 'Blood pressure and blood sugar testing plus a BMI checkup — the starting point for any customized plan.',
 			'icon'    => 'nutritional-assessment.png',
 		),
 	);
@@ -152,7 +152,7 @@ function cnc_core_seed_content() {
 		),
 		array(
 			'question' => 'How much does a consultation cost?',
-			'answer'   => 'Initial sessions start at ₦15,000 (includes assessment and a personalized nutrition strategy); follow-ups are ₦7,000. See the Services page for full package pricing.',
+			'answer'   => 'There are two consultation types: Consultation & Guidelines (₦15,000) covers your assessment and general nutrition guidance, and Consultation & Customized Diet Plan (₦30,000) includes a diet plan built around your goals. Follow-up sessions are ₦7,000. See the Services page for full package pricing.',
 		),
 		array(
 			'question' => 'Can you help with diabetes or hypertension?',
@@ -160,7 +160,7 @@ function cnc_core_seed_content() {
 		),
 		array(
 			'question' => 'Do you accommodate dietary restrictions?',
-			'answer'   => 'Yes — plans are fully personalized to your preferences, cultural background, religious requirements, and any food allergies.',
+			'answer'   => 'Yes — plans are fully customized to your preferences, cultural background, religious requirements, and any food allergies.',
 		),
 	);
 

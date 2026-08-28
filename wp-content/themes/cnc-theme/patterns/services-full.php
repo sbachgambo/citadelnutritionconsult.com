@@ -44,8 +44,8 @@
 		</thead>
 		<tbody>
 			<tr><td>Nutritional Assessment</td><td>₦3,000</td><td>Blood pressure &amp; blood sugar testing, BMI checkup</td></tr>
-			<tr><td>Basic Plan</td><td>₦10,000</td><td>30–45 min consultation, 7-day diet plan, support group access</td></tr>
-			<tr><td>Customized Plan</td><td>₦30,000</td><td>28-day personalized diet plan, starter items included</td></tr>
+			<tr><td>Basic Plan</td><td>₦15,000</td><td>30–45 min consultation, 7-day diet plan, support group access</td></tr>
+			<tr><td>Customized Plan</td><td>₦30,000</td><td>28-day customized diet plan, starter items included</td></tr>
 			<tr><td>Gold Plan</td><td>₦60,000</td><td>Customized plan + CNC Smartfood box + video tutorial</td></tr>
 			<tr><td>Premium Plan</td><td>₦180,000</td><td>Gold plan + 4-week private review + 4-recipe culinary session</td></tr>
 			<tr><td>Citadel Plan</td><td>₦360,000</td><td>Premium plan + 12-week private review + 8-recipe culinary session</td></tr>

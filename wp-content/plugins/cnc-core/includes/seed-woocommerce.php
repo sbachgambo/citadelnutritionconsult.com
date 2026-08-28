@@ -48,7 +48,7 @@ function cnc_core_maybe_seed_woocommerce() {
 		),
 		array(
 			'name'        => 'CNC Moringa Detox (Tea Bags)',
-			'description' => 'Herbal tea bags positioned for general wellness and detox support. No preservatives or artificial color.',
+			'description' => 'Herbal tea bags positioned for general wellness and detox support. No preservatives or artificial color. Available in Jos only.',
 			'sku'         => 'CNC-MORINGA-TEA',
 			'price'       => 4800,
 			'category'    => 'CNC Beverages and Teas',
@@ -56,7 +56,7 @@ function cnc_core_maybe_seed_woocommerce() {
 		),
 		array(
 			'name'        => 'CNC Cinnamon (Tea Bags)',
-			'description' => 'Metabolic-balance tea bags, positioned within CNC\'s blood-sugar-friendly beverage range.',
+			'description' => 'Metabolic-balance tea bags, positioned within CNC\'s blood-sugar-friendly beverage range. Available in Jos only.',
 			'sku'         => 'CNC-CINNAMON-TEA',
 			'price'       => 5400,
 			'category'    => 'CNC Beverages and Teas',
@@ -64,7 +64,7 @@ function cnc_core_maybe_seed_woocommerce() {
 		),
 		array(
 			'name'        => 'CNC Zobo Drink (50cl)',
-			'description' => 'Bottled natural hibiscus beverage. No artificial flavour, no preservative.',
+			'description' => 'Bottled natural hibiscus beverage. No artificial flavour, no preservative. Available in Jos only.',
 			'sku'         => 'CNC-ZOBO-DRINK-50CL',
 			'price'       => 4800,
 			'category'    => 'CNC Beverages and Teas',
@@ -72,7 +72,7 @@ function cnc_core_maybe_seed_woocommerce() {
 		),
 		array(
 			'name'        => 'CNC Tigernut Drink (50cl)',
-			'description' => 'Sweetened with sugar, 100% natural, no artificial flavour or preservative.',
+			'description' => 'Sweetened with sugar, 100% natural, no artificial flavour or preservative. Available in Jos only.',
 			'sku'         => 'CNC-TIGERNUT-50CL',
 			'price'       => 1500,
 			'category'    => 'CNC Beverages and Teas',
@@ -111,7 +111,7 @@ function cnc_core_maybe_seed_woocommerce() {
 		),
 		array(
 			'name'        => 'CNC Zobo (Tea Bags)',
-			'description' => 'Hibiscus tea bags — the same Zobo flavor as CNC\'s bottled drink, in a tea-bag format. Price pending confirmation.',
+			'description' => 'Hibiscus tea bags — the same Zobo flavor as CNC\'s bottled drink, in a tea-bag format. Available in Jos only. Price pending confirmation.',
 			'sku'         => 'CNC-ZOBO-TEA',
 			'price'       => null,
 			'category'    => 'CNC Beverages and Teas',

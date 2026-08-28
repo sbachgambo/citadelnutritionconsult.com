@@ -33,6 +33,7 @@
 					<!-- wp:list-item --><li>Lori Bemi Lola — Abuja</li><!-- /wp:list-item -->
 					<!-- wp:list-item --><li>Lurowo Favour Omotoyosi — Ogun</li><!-- /wp:list-item -->
 					<!-- wp:list-item --><li>Ifeanyi Okafor Chigozie — Plateau</li><!-- /wp:list-item -->
+					<!-- wp:list-item --><li>Theodora Ojukwu — Plateau</li><!-- /wp:list-item -->
 				</ul>
 				<!-- /wp:list -->
 			</div>
