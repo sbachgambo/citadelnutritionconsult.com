@@ -13,19 +13,23 @@
 	border-color: transparent;
 }
 
-/* Photo header on service cards: bleeds to the card's edges, like the preview */
+/* Photo header on service cards: bleeds to the card's edges, like the preview.
+   The block's className lands on the <img> itself (Post Featured Image has no
+   wrapper), and needs a fixed height so every card crops to the same size
+   instead of each photo's own natural aspect ratio. */
 .cnc-service-card {
 	overflow: hidden;
 }
-.cnc-service-card .cnc-service-photo img {
+.cnc-service-card img.cnc-service-photo {
 	width: calc(100% + 3rem);
 	max-width: calc(100% + 3rem);
+	height: 160px;
 	object-fit: cover;
 	margin: -1.5rem -1.5rem 1.1rem;
 	border-radius: 0;
 	transition: transform 0.4s ease;
 }
-.cnc-service-card:hover .cnc-service-photo img {
+.cnc-service-card:hover img.cnc-service-photo {
 	transform: scale(1.06);
 }
 
@@ -93,7 +97,7 @@
 	.wp-block-group.has-border,
 	.wp-element-button,
 	.wp-block-button__link,
-	.cnc-service-photo img,
+	.cnc-service-card img.cnc-service-photo,
 	.cnc-tilt {
 		transition: none;
 	}

@@ -45,6 +45,11 @@ Client asked for the service cards' large flat icons to be replaced with relevan
 - New CSS treatment (`.service-photo` in the preview, `.cnc-service-photo`/`.cnc-service-card` in the theme's `interactions.css`) bleeds the photo to the card's edges as a 160px-tall header instead of a small centered icon, with a subtle zoom on hover replacing the old icon rotate/pop.
 - The old 9 flat icon PNGs (`preview/images/icons/`, the theme's `assets/images/icons/`, and the plugin's `seed-assets/services/*.png`) were deleted; `seed-content.php` now points each Service's featured image at the new `.jpg` photos in `seed-assets/services/`.
 
+**Follow-up fix (same day):** the client flagged that the new photos weren't uniformly sized, and asked that everyone shown be African, not Caucasian.
+- **Sizing bug:** `.service-photo`'s fixed-height crop was being silently overridden by the more specific pre-existing `.card img, .split img, .hero-media img { height: auto }` rule that came later in the stylesheet — every card was rendering at its own photo's natural aspect ratio instead of a uniform height. Fixed by giving the crop rule higher specificity (`.card img.service-photo`); the equivalent bug existed in the theme's `interactions.css` for a different reason (the selector assumed the featured-image block wrapped its `<img>`, but the block's `className` lands directly on the `<img>` itself) and is fixed the same way (`.cnc-service-card img.cnc-service-photo`).
+- **Representation:** the four stock photos (Online Courses, Culinary Services, Group Coaching, Guest Speaking) were re-sourced from Pexels to depict Black/African subjects, matching the real CNC photography used everywhere else on the site.
+- **Pre-cropping:** rather than relying on the browser's default center-crop (which was cutting off faces on a couple of portrait-oriented source photos), all 9 service photos are now pre-cropped with Pillow to a consistent 2.4:1 landscape aspect ratio with a manually chosen focal point per photo, then resized down (multi-MB originals are now 30–80KB each). This also unified every service photo under `preview/images/services/` instead of being scattered across `cnc/`, `ebooks/`, and `services/`.
+
 ## What's here
 
 ```
