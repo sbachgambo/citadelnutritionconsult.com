@@ -14,10 +14,29 @@
 defined( 'ABSPATH' ) || exit;
 
 function cnc_core_maybe_seed_woocommerce() {
-	if ( get_option( 'cnc_core_woocommerce_seeded' ) ) {
+	if ( ! class_exists( 'WooCommerce' ) || ! function_exists( 'wc_get_product' ) ) {
 		return;
 	}
-	if ( ! class_exists( 'WooCommerce' ) || ! function_exists( 'wc_get_product' ) ) {
+
+	// All seeded prices are Naira figures — WooCommerce defaults its store
+	// currency to USD, which would silently mislabel every price. Set it
+	// once; if a store admin later changes it, we don't fight that choice.
+	if ( 'NGN' !== get_option( 'woocommerce_currency' ) && ! get_option( 'cnc_core_currency_set' ) ) {
+		update_option( 'woocommerce_currency', 'NGN' );
+		update_option( 'cnc_core_currency_set', true );
+	}
+
+	// WooCommerce 8.9+ ships new installs with "Coming soon" mode on, which
+	// shows a "launching soon" placeholder on the Shop page (and every WC
+	// page) instead of real products — an easy thing to forget to turn off
+	// before launch. Turn it off once the real catalog is seeded; if a store
+	// admin re-enables it deliberately later, we don't fight that choice.
+	if ( 'yes' === get_option( 'woocommerce_coming_soon' ) && ! get_option( 'cnc_core_coming_soon_disabled' ) ) {
+		update_option( 'woocommerce_coming_soon', 'no' );
+		update_option( 'cnc_core_coming_soon_disabled', true );
+	}
+
+	if ( get_option( 'cnc_core_woocommerce_seeded' ) ) {
 		return;
 	}
 
@@ -66,7 +85,7 @@ function cnc_core_maybe_seed_woocommerce() {
 			'name'        => 'CNC Zobo Drink (50cl)',
 			'description' => 'Bottled natural hibiscus beverage. No artificial flavour, no preservative. Available in Jos only.',
 			'sku'         => 'CNC-ZOBO-DRINK-50CL',
-			'price'       => 4800,
+			'price'       => 1000,
 			'category'    => 'CNC Beverages and Teas',
 			'image'       => 'zobo-drink.png',
 		),
@@ -78,45 +97,40 @@ function cnc_core_maybe_seed_woocommerce() {
 			'category'    => 'CNC Beverages and Teas',
 			'image'       => 'tigernut.png',
 		),
-		// Real package photography exists for these, but none were found for
-		// individual sale on the live shop as of 2026-08-26 (confirmed by
-		// paging through the full catalog) — seeded as drafts with no price
-		// so they don't appear to customers until confirmed and published.
+		// Prices confirmed 2026-09-01 by paging through the full live shop
+		// catalog (cncsmartfood.com/shop/page/2/ and /page/3/) — previously
+		// seeded as unpriced drafts because they weren't found on page 1.
 		array(
 			'name'        => 'Finger Millet Flour (900g) — "Tamba"',
-			'description' => 'Finger millet with ginger and cloves, suitable for pap. Price pending confirmation.',
+			'description' => 'Finger millet with ginger and cloves, suitable for pap.',
 			'sku'         => 'CNC-FINGER-MILLET-900',
-			'price'       => null,
+			'price'       => 3600,
 			'category'    => 'CNC Products',
 			'image'       => 'finger-millet.png',
-			'draft'       => true,
 		),
 		array(
-			'name'        => 'Plantain Smartmix (900g)',
-			'description' => 'Plantain-based blend for a quick, wholesome swallow. Price pending confirmation.',
-			'sku'         => 'CNC-PLANTAIN-SMARTMIX-900',
-			'price'       => null,
+			'name'        => 'Plantain Smartmix (1kg)',
+			'description' => 'Plantain-based blend for a quick, wholesome swallow.',
+			'sku'         => 'CNC-PLANTAIN-SMARTMIX-1KG',
+			'price'       => 4200,
 			'category'    => 'CNC Products',
 			'image'       => 'plantain-smartmix.png',
-			'draft'       => true,
 		),
 		array(
-			'name'        => 'Tom Brown (900g)',
-			'description' => 'Guinea corn, soybeans, groundnut, and sugar — a traditional Nigerian pap. Price pending confirmation.',
-			'sku'         => 'CNC-TOM-BROWN-900',
-			'price'       => null,
+			'name'        => 'Tom Brown (1kg)',
+			'description' => 'Guinea corn, soybeans, groundnut, and sugar — a traditional Nigerian pap.',
+			'sku'         => 'CNC-TOM-BROWN-1KG',
+			'price'       => 3600,
 			'category'    => 'CNC Products',
 			'image'       => 'tom-brown.png',
-			'draft'       => true,
 		),
 		array(
-			'name'        => 'CNC Zobo (Tea Bags)',
-			'description' => 'Hibiscus tea bags — the same Zobo flavor as CNC\'s bottled drink, in a tea-bag format. Available in Jos only. Price pending confirmation.',
-			'sku'         => 'CNC-ZOBO-TEA',
-			'price'       => null,
+			'name'        => 'CNC Zobo Infusion (Tea Bags)',
+			'description' => 'Hibiscus tea bags — the same Zobo flavor as CNC\'s bottled drink, in a tea-bag format. Available in Jos only.',
+			'sku'         => 'CNC-ZOBO-INFUSION-TEA',
+			'price'       => 4800,
 			'category'    => 'CNC Beverages and Teas',
 			'image'       => 'zobo-tea.png',
-			'draft'       => true,
 		),
 	);
 

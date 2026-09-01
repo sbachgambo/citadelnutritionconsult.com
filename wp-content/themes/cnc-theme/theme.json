@@ -114,6 +114,7 @@
 		{ "name": "footer", "title": "Footer", "area": "footer" }
 	],
 	"customTemplates": [
+		{ "name": "page-about-michelle", "title": "About Michelle Full Page", "postTypes": ["page"] },
 		{ "name": "page-services", "title": "Services Full Page", "postTypes": ["page"] },
 		{ "name": "page-communities", "title": "CNC Communities", "postTypes": ["page"] },
 		{ "name": "page-blog", "title": "Blog Listing", "postTypes": ["page"] },
