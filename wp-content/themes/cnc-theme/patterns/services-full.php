@@ -33,7 +33,7 @@
 	<!-- /wp:heading -->
 
 	<!-- wp:paragraph {"align":"center"} -->
-	<p class="has-text-align-center">Starting prices — confirm against the current live pricing before publishing.</p>
+	<p class="has-text-align-center">Straight from the current CNC pricing flyer. Physical consultations available at the Jos clinic; phone/virtual consultations also available for every plan.</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:table {"hasFixedLayout":false,"style":{"spacing":{"margin":{"top":"2rem"}}}} -->
@@ -43,12 +43,13 @@
 			<tr><th>Plan</th><th>Price</th><th>Key features</th></tr>
 		</thead>
 		<tbody>
-			<tr><td>Nutritional Assessment</td><td>₦3,000</td><td>Blood pressure &amp; blood sugar testing, BMI checkup</td></tr>
-			<tr><td>Basic Plan</td><td>₦15,000</td><td>30–45 min consultation, 7-day diet plan, support group access</td></tr>
-			<tr><td>Customized Plan</td><td>₦30,000</td><td>28-day customized diet plan, starter items included</td></tr>
-			<tr><td>Gold Plan</td><td>₦60,000</td><td>Customized plan + CNC Smartfood box + video tutorial</td></tr>
-			<tr><td>Premium Plan</td><td>₦180,000</td><td>Gold plan + 4-week private review + 4-recipe culinary session</td></tr>
-			<tr><td>Citadel Plan</td><td>₦360,000</td><td>Premium plan + 12-week private review + 8-recipe culinary session</td></tr>
+			<tr><td>Consultation</td><td>₦15,000</td><td>Nutritional assessment, 30–45 min session, 7-day general diet plan, consultation action points, access to the Support Group</td></tr>
+			<tr><td>Customized Plan</td><td>₦30,000</td><td>Everything in Consultation, plus a fully customized 7-day diet plan with variety column, detailed guidelines, and shopping list — ready 5–7 working days after your session</td></tr>
+			<tr><td>Gold Plan</td><td>₦60,000</td><td>Customized Plan, plus a complimentary diet-treatment video and a CNC Smartfoods starter box</td></tr>
+			<tr><td>Premium Plan</td><td>₦180,000</td><td>Gold Plan, plus 4 weeks in the Private Review Group and a 4-recipe culinary tutorial (or an extra ½ box of Smartfoods where a CNC Diet Chef isn't available)</td></tr>
+			<tr><td>Citadel Plan</td><td>₦380,000</td><td>Premium Plan, plus 12 weeks in the Private Review Group, an 8-recipe culinary tutorial, and 2 boxes of Smartfoods</td></tr>
+			<tr><td>Diet Plan Only</td><td>₦15,000</td><td>Just the diet plan, no consultation session</td></tr>
+			<tr><td>Follow Up</td><td>₦7,500</td><td>A single follow-up session for existing clients</td></tr>
 		</tbody>
 	</table>
 	</figure>

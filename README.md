@@ -14,6 +14,22 @@ Before converting to the WP theme, `preview/` is a static, clickable HTML/CSS mo
 
 **The preview has been ported into the actual WordPress theme.** Everything below reflects that — the theme is no longer just a skeleton.
 
+## Client review feedback round 1 (2026-08-28)
+
+Client reviewed the live preview and sent 7 corrections, applied to both `preview/` and the theme:
+
+1. Fixed a typo introduced by an earlier "personalized→customized" pass ("Customized guidance... customized meal planning" repetition).
+2. One-on-One Consultations now says "a registered dietitian," not "Dietitian Michelle" specifically — it's not a solo service.
+3. Removed the ₦20,000/₦7,000 Culinary Services pricing per client request (kept the description, dropped the price line).
+4. **Pricing table rebuilt entirely from two real CNC flyers the client provided** — this supersedes the guessed/sourced pricing from the earlier live-site audit: Consultation ₦15,000, Customized Plan ₦30,000, Gold ₦60,000, Premium ₦180,000, **Citadel ₦380,000 (was ₦360,000)**, Diet Plan Only ₦15,000, **Follow Up ₦7,500 (was ₦7,000)**. The old standalone "Nutritional Assessment ₦3,000" and "Basic Plan" line items are gone — the flyer folds assessment into every plan and doesn't list them separately.
+5. Added a "Where CNC Smartfoods came from" origin-story section to the Shop page, linking the clinic, Michelle, and the product line — marked as a **draft narrative pending the client's fact-check**, since I don't have the real founding story, only a plausible one grounded in what's documented elsewhere on the site.
+6. Noted "Diet Talk with Dietitian Michelle" is a **radio show** (also available as video) — corrected the About Michelle page's framing, which previously only described it as a YouTube series.
+7. Accountability program price corrected: ₦30,000 → ₦50,000 for 1 month.
+
+Also added, from the flyers: a second phone number (+234 708 987 3497) alongside the existing one in every footer.
+
+**Known gap this round didn't touch:** the About Michelle page's "Diet Talk" video section and radio-show mention only exist in `preview/` — there's still no full About Michelle template in the theme (flagged earlier under "Still pending"), so item 6 hasn't been ported to the theme yet.
+
 **Real WordPress install test (2026-08-27).** Everything above was verified end-to-end on a real, throwaway local WordPress install (WP 7.1, SQLite backend via the official SQLite Database Integration plugin, PHP 8.3, no MySQL needed) — not just PHP-linted, actually run:
 - CNC Core and CNC Theme both activate with zero fatal errors or warnings in `debug.log`.
 - Content seeding verified by direct count: 9 Services, 4 Testimonials, 5 FAQ, 9 Digital Products, 3 blog Posts, 21 media attachments — all exactly as designed.

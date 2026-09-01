@@ -54,7 +54,7 @@ function cnc_core_seed_content() {
 	$services = array(
 		array(
 			'title'   => 'One-on-One Consultations',
-			'content' => 'Customized guidance from Dietitian Michelle (RDN) — customized meal planning and ongoing support, in-clinic or virtual via Zoom, Google Meet, or WhatsApp video.',
+			'content' => 'Customized guidance from a registered dietitian — tailored meal planning and ongoing support, in-clinic or virtual via Zoom, Google Meet, or WhatsApp video.',
 			'icon'    => 'consultations.png',
 		),
 		array(
@@ -69,7 +69,7 @@ function cnc_core_seed_content() {
 		),
 		array(
 			'title'   => 'Culinary Services',
-			'content' => 'Customized diet calculation and hands-on cooking instruction — recipe modification and meal adaptation for diabetes, weight loss, cancer, kidney disease, and heart conditions while preserving cultural authenticity. ₦20,000 per recipe (staff training) or ₦7,000 per prepared meal.',
+			'content' => 'Customized diet calculation and hands-on cooking instruction — recipe modification and meal adaptation for diabetes, weight loss, cancer, kidney disease, and heart conditions while preserving cultural authenticity.',
 			'icon'    => 'culinary.png',
 		),
 		array(
@@ -152,7 +152,7 @@ function cnc_core_seed_content() {
 		),
 		array(
 			'question' => 'How much does a consultation cost?',
-			'answer'   => 'There are two consultation types: Consultation & Guidelines (₦15,000) covers your assessment and general nutrition guidance, and Consultation & Customized Diet Plan (₦30,000) includes a diet plan built around your goals. Follow-up sessions are ₦7,000. See the Services page for full package pricing.',
+			'answer'   => 'There are two consultation types: Consultation (₦15,000) includes a nutritional assessment, a 30–45 minute session, and a 7-day general diet plan; Customized Plan (₦30,000) adds a fully customized 7-day diet plan with a shopping list, ready 5–7 working days after your session. Follow-up sessions are ₦7,500. See the Services page for full package pricing.',
 		),
 		array(
 			'question' => 'Can you help with diabetes or hypertension?',
