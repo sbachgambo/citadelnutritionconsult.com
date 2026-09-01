@@ -12,11 +12,21 @@
 	box-shadow: 0 16px 32px -12px rgba(28,35,33,0.18);
 	border-color: transparent;
 }
-.wp-block-group.has-border:hover .wp-block-post-featured-image img {
-	transform: translateY(-3px) scale(1.08) rotate(-3deg);
+
+/* Photo header on service cards: bleeds to the card's edges, like the preview */
+.cnc-service-card {
+	overflow: hidden;
 }
-.wp-block-post-featured-image img {
-	transition: transform 0.3s ease;
+.cnc-service-card .cnc-service-photo img {
+	width: calc(100% + 3rem);
+	max-width: calc(100% + 3rem);
+	object-fit: cover;
+	margin: -1.5rem -1.5rem 1.1rem;
+	border-radius: 0;
+	transition: transform 0.4s ease;
+}
+.cnc-service-card:hover .cnc-service-photo img {
+	transform: scale(1.06);
 }
 
 .wp-element-button,
@@ -83,6 +93,7 @@
 	.wp-block-group.has-border,
 	.wp-element-button,
 	.wp-block-button__link,
+	.cnc-service-photo img,
 	.cnc-tilt {
 		transition: none;
 	}

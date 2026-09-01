@@ -20,8 +20,8 @@
 	<div class="wp-block-query">
 		<!-- wp:post-template -->
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
-				<!-- wp:post-featured-image {"height":"64px","width":"64px","style":{"border":{"radius":"8px"}}} /-->
+			<div class="wp-block-group has-border-color has-border cnc-service-card" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+				<!-- wp:post-featured-image {"height":"160px","className":"cnc-service-photo"} /-->
 				<!-- wp:post-title {"level":3,"isLink":false} /-->
 				<!-- wp:post-excerpt /-->
 			</div>

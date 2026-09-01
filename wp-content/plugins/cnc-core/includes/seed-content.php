@@ -55,47 +55,47 @@ function cnc_core_seed_content() {
 		array(
 			'title'   => 'One-on-One Consultations',
 			'content' => 'Customized guidance from a registered dietitian — tailored meal planning and ongoing support, in-clinic or virtual via Zoom, Google Meet, or WhatsApp video.',
-			'icon'    => 'consultations.png',
+			'icon'    => 'consultations.jpg',
 		),
 		array(
 			'title'   => 'Diet Plans & E-Books',
 			'content' => 'Expertly designed nutrition guides tailored to specific goals — weight loss, chronic condition management, meal planning, grocery shopping, and mindful eating.',
-			'icon'    => 'diet-plans.png',
+			'icon'    => 'diet-plans.jpg',
 		),
 		array(
 			'title'   => 'Online Courses',
 			'content' => 'In-depth video lessons and interactive modules on nutrition, healthy eating, and management of diet-related conditions — self-paced.',
-			'icon'    => 'online-courses.png',
+			'icon'    => 'online-courses.jpg',
 		),
 		array(
 			'title'   => 'Culinary Services',
 			'content' => 'Customized diet calculation and hands-on cooking instruction — recipe modification and meal adaptation for diabetes, weight loss, cancer, kidney disease, and heart conditions while preserving cultural authenticity.',
-			'icon'    => 'culinary.png',
+			'icon'    => 'culinary.jpg',
 		),
 		array(
 			'title'   => 'Corporate & Hospital Partnerships',
 			'content' => 'Workplace wellness programs and Medical Nutrition Therapy services for healthcare facilities and gyms without an in-house registered dietitian.',
-			'icon'    => 'corporate-hospital.png',
+			'icon'    => 'corporate-hospital.jpg',
 		),
 		array(
 			'title'   => 'Group Coaching & Follow-Up',
 			'content' => 'Community-based support for clients with shared goals, plus dietitian-led progress monitoring and accountability check-ins. ₦50,000 for a 30-day accountability program (daily follow-ups, meal reviews, weekly sessions).',
-			'icon'    => 'group-coaching.png',
+			'icon'    => 'group-coaching.jpg',
 		),
 		array(
 			'title'   => 'Therapeutic Food Packs',
 			'content' => 'Customized meal packages for chronic illness recovery, digestive disorders, and weight management — from CNC Smart Foods.',
-			'icon'    => 'therapeutic-food.png',
+			'icon'    => 'therapeutic-food.jpg',
 		),
 		array(
 			'title'   => 'Guest Speaking',
 			'content' => 'Educational presentations on nutrition for community events, churches, corporate gatherings, and hospitals.',
-			'icon'    => 'guest-speaking.png',
+			'icon'    => 'guest-speaking.jpg',
 		),
 		array(
 			'title'   => 'Nutritional Assessment',
 			'content' => 'Blood pressure and blood sugar testing plus a BMI checkup — the starting point for any customized plan.',
-			'icon'    => 'nutritional-assessment.png',
+			'icon'    => 'nutritional-assessment.jpg',
 		),
 	);
 
@@ -114,7 +114,7 @@ function cnc_core_seed_content() {
 			$attach_id = cnc_core_sideload_local_image(
 				CNC_CORE_PATH . 'seed-assets/services/' . $service['icon'],
 				$post_id,
-				$service['title'] . ' icon'
+				$service['title'] . ' photo'
 			);
 			if ( $attach_id ) {
 				set_post_thumbnail( $post_id, $attach_id );

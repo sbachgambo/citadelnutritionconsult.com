@@ -37,6 +37,14 @@ Also added, from the flyers: a second phone number (+234 708 987 3497) alongside
 - The Services pricing table, the Learn page's per-product block bindings (price + Selar link resolving correctly from post meta), the Communities page, and the Diet Padi links all confirmed rendering with real content.
 - WooCommerce installed and activated live; `seed-woocommerce.php` produced exactly 7 published + 4 draft products with real photography, and the draft products correctly stayed hidden from the public `/shop/` page. One benign WooCommerce-core notice appeared in the log (a known translation-loading timing quirk, unrelated to CNC code) — not a functional issue.
 
+## Client review feedback round 3 (2026-09-01)
+
+Client asked for the service cards' large flat icons to be replaced with relevant photos instead, reusing existing image assets where possible.
+
+- **Services page + homepage teaser** (`preview/services.html`, `preview/index.html` and the theme's `services-grid.php` / `services-full.php` patterns): the 9 service cards now show a real photo instead of a 56px icon. Where a genuine CNC photo fit, it was reused rather than sourcing anything new: One-on-One Consultations and Nutritional Assessment use real clinic photos, Corporate & Hospital Partnerships uses the clinic building exterior, Therapeutic Food Packs uses a Nutrition Hub shelf photo, and Diet Plans & E-Books reuses one of the real e-book covers already on the Learn page. Four services had no matching real photo available (Online Courses, Culinary Services, Group Coaching & Follow-Up, Guest Speaking) — these use free-to-use Pexels stock photos instead.
+- New CSS treatment (`.service-photo` in the preview, `.cnc-service-photo`/`.cnc-service-card` in the theme's `interactions.css`) bleeds the photo to the card's edges as a 160px-tall header instead of a small centered icon, with a subtle zoom on hover replacing the old icon rotate/pop.
+- The old 9 flat icon PNGs (`preview/images/icons/`, the theme's `assets/images/icons/`, and the plugin's `seed-assets/services/*.png`) were deleted; `seed-content.php` now points each Service's featured image at the new `.jpg` photos in `seed-assets/services/`.
+
 ## What's here
 
 ```
@@ -48,19 +56,19 @@ wp-content/
     patterns/               hero-clinic, services-grid, services-full (pricing table), communities-full (groups, partnerships, careers),
                              blog-full (3-col card grid), testimonials, about-michelle-teaser, shop-teaser, learn-teaser, faq,
                              booking-cta — all using real bundled photography, no placehold.co left
-    assets/images/          brand/ (logo, favicon), icons/ (9 real 3D service icons), patterns/ (4 default hero/teaser photos)
+    assets/images/          brand/ (logo, favicon), patterns/ (4 default hero/teaser photos)
     assets/css/interactions.css, assets/js/interactions.js   Hover-lift, scroll-reveal, and mouse-tilt motion layer ported from the preview
   plugins/cnc-core/        Custom post types: Service, Testimonial, FAQ Item, Digital Product
     includes/post-types.php
     includes/meta.php       cnc_price / cnc_selar_url meta on Digital Product, bound into the Learn page pattern via core block bindings (WP 6.5+)
     includes/seed-content.php       Seeds real starter content (Services, Testimonials, FAQ, Digital Products, 3 blog Posts) on activation
     includes/seed-woocommerce.php   Seeds the real CNC Smartfoods catalog once WooCommerce is detected active — see setup step 6 below
-    seed-assets/             Service icons, e-book covers, blog images, Smartfoods package photos — sideloaded into the Media Library once, then left alone
+    seed-assets/             Service photos, e-book covers, blog images, Smartfoods package photos — sideloaded into the Media Library once, then left alone
 ```
 
 Services, testimonials, and FAQ patterns pull live from their CPTs via query loops — adding/editing/reordering entries in wp-admin updates the homepage (and the new `/services/` page) automatically. Digital Products work the same way on `/learn/`, with price and the Selar checkout link editable per-post via the sidebar (bound to the button/price text through core block bindings).
 
-**Content seeding:** activating CNC Core inserts the real content gathered from the live sites — 9 Services (with their real 3D icons as featured images), 4 Testimonials, 5 FAQ entries, and 9 Digital Products (with real e-book cover art, price, and a Selar link). This runs once (`cnc_core_seeded` option guards it) — it will never overwrite or duplicate on reactivation, and staff can freely edit or delete any of it afterward like any other post.
+**Content seeding:** activating CNC Core inserts the real content gathered from the live sites — 9 Services (each with a relevant photo as its featured image — real client photography where it exists, free stock where it doesn't), 4 Testimonials, 5 FAQ entries, and 9 Digital Products (with real e-book cover art, price, and a Selar link). This runs once (`cnc_core_seeded` option guards it) — it will never overwrite or duplicate on reactivation, and staff can freely edit or delete any of it afterward like any other post.
 
 ## Local setup
 
