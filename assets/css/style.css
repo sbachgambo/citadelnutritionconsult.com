@@ -228,24 +228,27 @@ section { padding: var(--section-gap) 0; }
 	border-color: transparent;
 }
 
-/* Photo header on service cards, bleeding to the card's edges */
-.service-photo {
-	width: calc(100% + 3rem);
-	height: 160px;
-	object-fit: cover;
-	display: block;
-	margin: -1.5rem -1.5rem 1.1rem;
-	transition: transform 0.4s ease;
-}
-.card:hover .service-photo {
-	transform: scale(1.06);
-}
-
 .card img, .split img, .hero-media img {
 	width: 100%;
 	height: auto;
 	display: block;
 	border-radius: 10px;
+}
+
+/* Photo header on service cards, bleeding to the card's edges.
+   Selector is deliberately more specific than ".card img" above so every
+   card gets the same fixed-height crop instead of its own natural aspect ratio. */
+.card img.service-photo {
+	width: calc(100% + 3rem);
+	height: 160px;
+	object-fit: cover;
+	display: block;
+	margin: -1.5rem -1.5rem 1.1rem;
+	border-radius: 0;
+	transition: transform 0.4s ease;
+}
+.card:hover img.service-photo {
+	transform: scale(1.06);
 }
 
 .quote-card {
@@ -373,7 +376,7 @@ section { padding: var(--section-gap) 0; }
 
 @media (prefers-reduced-motion: reduce) {
 	.reveal { opacity: 1; transform: none; transition: none; }
-	.card, .btn, .service-photo, .tilt { transition: none; }
+	.card, .btn, .card img.service-photo, .tilt { transition: none; }
 }
 
 /* Responsive 16:9 video embeds */
