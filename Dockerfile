@@ -27,6 +27,7 @@ RUN wp plugin install woocommerce --version=11.0.1 --allow-root
 
 COPY wp-content/themes/cnc-theme/ wp-content/themes/cnc-theme/
 COPY wp-content/plugins/cnc-core/ wp-content/plugins/cnc-core/
+COPY wp-content/mu-plugins/ wp-content/mu-plugins/
 
 RUN chown -R www-data:www-data /var/www/html
 

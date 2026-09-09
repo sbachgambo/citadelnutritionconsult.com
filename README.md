@@ -2,6 +2,26 @@
 
 Scaffolding for the rebuild described in [cnc-website-rebuild-brief.md](cnc-website-rebuild-brief.md). This is the code deliverable (#1–#2 in brief §8); content, brand assets, and commerce plugin configuration still need to happen in WP admin per §9.
 
+## Pre-launch audit (2026-09-09)
+
+Adapted 20-point pre-launch checklist to what this project actually is (WordPress + static preview, not Next.js). Fixed everything actionable in code; two items need the client's real URLs.
+
+**P0 — fixed:**
+- **No WP Pages were ever created by the deploy automation.** `cnc_core_seed_content()` seeds the CPT content (Services, Digital Products, etc.) the templates query, but nothing created the actual Pages themselves (`/services/`, `/about-michelle/`, `/shop/`, `/learn/`, `/communities/`, `/book/`, `/blog/`) with their template assigned — on a genuinely fresh install every nav link would have 404'd. New `includes/seed-pages.php` + `cnc_core_seed_pages()` (called from plugin activation) creates all 7, each with the right `_wp_page_template`.
+- **Privacy Policy and Terms & Conditions** — WP's auto-created Privacy Policy page existed but was an empty draft, and there was no Terms page at all. Both now get real content (draft — flagged inline as needing legal/NDPR review) via the same `seed-pages.php`, published automatically, linked from the footer.
+- **A real, previously-undetected rendering bug**: `parts/header.html` and `parts/footer.html` both wrapped their own content in a self-referential `<!-- wp:template-part {"slug":"footer",...} -->...<!-- /wp:template-part -->` comment — a part block referencing itself. This silently broke the footer (rendered as a completely empty `<footer>` on every single page — no address, no nav, no legal links) and, less visibly, the header. Found and fixed by testing actual rendered output, not just linting; template parts should just be raw content, not wrap themselves in another instance of the block they define.
+- **Communities page placeholder links** — `communities-full.php` has 6 real buttons (WhatsApp group, Paystack "Join Now", Google Forms partnership links) still pointing at `href="#"`. Can't fix without the client's real URLs — flagged, not silently left broken.
+
+**P1 — fixed:**
+- **Meta description + Open Graph tags** — none existed anywhere. `functions.php` now outputs a real description (post excerpt, or a sensible fallback) plus `og:title`/`og:description`/`og:image`/`og:url` on every page.
+- **Cookie notice** — informational bottom banner (`functions.php` + `interactions.css`), dismissal remembered per-browser. Not a consent gate — nothing on the site is blocked pending it.
+- **Analytics infrastructure** — `functions.php` now outputs the GA4 snippet whenever a measurement ID is set (via the `cnc_ga4_measurement_id` option/filter); currently off since there's no real ID to wire in yet.
+- **HTTPS behind Railway's proxy** — added `wp-content/mu-plugins/proxy-https.php`. Railway (like most PaaS hosts) terminates TLS at its edge and forwards plain HTTP internally with an `X-Forwarded-Proto: https` header; without trusting that header, WordPress's `is_ssl()` thinks every request is insecure and forces all URLs to `http://`, breaking WooCommerce/login cookies.
+
+**P2 — no action needed:** sitemap/robots.txt (WP core defaults, untouched), spam protection (no custom forms exist to protect), form validation (WooCommerce's own checkout has it).
+
+Everything above was verified on the real local WP install, not just linted — including specifically checking rendered footer/header output line-by-line, which is what caught the self-wrapping bug.
+
 ## Design preview (`preview/`)
 
 Before converting to the WP theme, `preview/` is a static, clickable HTML/CSS mockup of the full site — open `preview/index.html` in a browser and click through Home, Services, About Michelle, Shop, Learn, and Book. It shares the same color/type tokens as `theme.json` so nothing is re-decided when it's ported into the theme.

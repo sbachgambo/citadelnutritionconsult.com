@@ -92,6 +92,32 @@
 	.whatsapp-fab svg { width: 26px; height: 26px; }
 }
 
+/* Cookie notice (output via functions.php on wp_footer) */
+.cnc-cookie-notice {
+	position: fixed;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	z-index: 99;
+	max-width: 640px;
+	margin: 0 auto;
+	background: var(--wp--preset--color--contrast, #1C2321);
+	color: var(--wp--preset--color--base, #FBFBF9);
+	border-radius: 10px;
+	padding: 1rem 1.25rem;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+.cnc-cookie-notice p { margin: 0; font-size: 0.85rem; flex: 1 1 260px; }
+.cnc-cookie-notice a { color: inherit; text-decoration: underline; }
+@media (max-width: 720px) {
+	.cnc-cookie-notice { right: 5rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.cnc-reveal { opacity: 1; transform: none; transition: none; }
 	.wp-block-group.has-border,

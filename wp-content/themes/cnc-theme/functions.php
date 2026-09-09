@@ -90,3 +90,88 @@ function cnc_theme_whatsapp_button() {
 	<?php
 }
 add_action( 'wp_footer', 'cnc_theme_whatsapp_button' );
+
+/**
+ * Meta description + Open Graph tags. Uses the current post/page's excerpt
+ * (or an auto-generated one) when there is one, falling back to the site
+ * tagline on the front page and archives. OG image uses the featured image
+ * where set, else the CNC logo.
+ */
+function cnc_theme_seo_meta() {
+	if ( is_singular() ) {
+		$post        = get_queried_object();
+		$description = has_excerpt( $post ) ? get_the_excerpt( $post ) : wp_trim_words( wp_strip_all_tags( $post->post_content ), 30 );
+		$title       = get_the_title( $post );
+		$image       = has_post_thumbnail( $post ) ? get_the_post_thumbnail_url( $post, 'large' ) : get_theme_file_uri( 'assets/images/brand/cnc-logo.png' );
+	} else {
+		$description = get_bloginfo( 'description' ) ?: 'Clinical nutrition, dietetics, and therapeutic food products from Citadel Nutrition Consult, Jos, Nigeria.';
+		$title       = get_bloginfo( 'name' );
+		$image       = get_theme_file_uri( 'assets/images/brand/cnc-logo.png' );
+	}
+
+	$description = trim( wp_strip_all_tags( $description ) );
+	if ( '' === $description ) {
+		$description = 'Clinical nutrition, dietetics, and therapeutic food products from Citadel Nutrition Consult, Jos, Nigeria.';
+	}
+
+	printf( '<meta name="description" content="%s">' . "\n", esc_attr( $description ) );
+	printf( '<meta property="og:title" content="%s">' . "\n", esc_attr( $title ) );
+	printf( '<meta property="og:description" content="%s">' . "\n", esc_attr( $description ) );
+	printf( '<meta property="og:type" content="%s">' . "\n", is_singular( 'post' ) ? 'article' : 'website' );
+	printf( '<meta property="og:url" content="%s">' . "\n", esc_url( is_singular() ? get_permalink() : home_url( '/' ) ) );
+	printf( '<meta property="og:image" content="%s">' . "\n", esc_url( $image ) );
+	printf( '<meta name="twitter:card" content="summary_large_image">' . "\n" );
+}
+add_action( 'wp_head', 'cnc_theme_seo_meta', 2 );
+
+/**
+ * Analytics — off by default. Set a GA4 measurement ID (via the
+ * cnc_ga4_measurement_id filter, or the WP option of the same name) to
+ * enable Google Analytics site-wide with no further code changes.
+ */
+function cnc_theme_analytics() {
+	$ga4_id = apply_filters( 'cnc_ga4_measurement_id', get_option( 'cnc_ga4_measurement_id', '' ) );
+	if ( empty( $ga4_id ) ) {
+		return;
+	}
+	?>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr( $ga4_id ); ?>"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', '<?php echo esc_js( $ga4_id ); ?>');
+	</script>
+	<?php
+}
+add_action( 'wp_head', 'cnc_theme_analytics' );
+
+/**
+ * Lightweight cookie notice — informational, not a consent-gate (nothing on
+ * the site is blocked pending consent). Dismissal is remembered in
+ * localStorage so it only shows once per visitor.
+ */
+function cnc_theme_cookie_notice() {
+	?>
+	<div id="cnc-cookie-notice" class="cnc-cookie-notice" hidden role="region" aria-label="Cookie notice">
+		<p>We use cookies for cart/checkout functionality and, where enabled, site analytics. <a href="/privacy-policy/">Privacy Policy</a></p>
+		<button type="button" id="cnc-cookie-accept" class="btn">Got it</button>
+	</div>
+	<script>
+	(function () {
+		try {
+			if ( localStorage.getItem( 'cncCookieNoticeDismissed' ) ) { return; }
+		} catch ( e ) {}
+		var notice = document.getElementById( 'cnc-cookie-notice' );
+		if ( ! notice ) { return; }
+		notice.hidden = false;
+		var btn = document.getElementById( 'cnc-cookie-accept' );
+		btn.addEventListener( 'click', function () {
+			notice.hidden = true;
+			try { localStorage.setItem( 'cncCookieNoticeDismissed', '1' ); } catch ( e ) {}
+		} );
+	})();
+	</script>
+	<?php
+}
+add_action( 'wp_footer', 'cnc_theme_cookie_notice' );

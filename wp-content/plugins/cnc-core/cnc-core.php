@@ -17,10 +17,12 @@ require_once CNC_CORE_PATH . 'includes/post-types.php';
 require_once CNC_CORE_PATH . 'includes/meta.php';
 require_once CNC_CORE_PATH . 'includes/seed-content.php';
 require_once CNC_CORE_PATH . 'includes/seed-woocommerce.php';
+require_once CNC_CORE_PATH . 'includes/seed-pages.php';
 
 function cnc_core_activate() {
 	cnc_core_register_post_types();
 	cnc_core_seed_content();
+	cnc_core_seed_pages();
 	flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'cnc_core_activate' );
