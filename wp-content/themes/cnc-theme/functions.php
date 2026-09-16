@@ -48,7 +48,9 @@ function cnc_enqueue_assets() {
 	$version = wp_get_theme()->get( 'Version' );
 	wp_enqueue_style( 'cnc-theme-style', get_stylesheet_uri(), array(), $version );
 	wp_enqueue_style( 'cnc-theme-interactions', get_theme_file_uri( 'assets/css/interactions.css' ), array( 'cnc-theme-style' ), $version );
-	wp_enqueue_script( 'cnc-theme-interactions', get_theme_file_uri( 'assets/js/interactions.js' ), array(), $version, true );
+	wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js', array(), '3.12.5', true );
+	wp_enqueue_script( 'gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js', array( 'gsap' ), '3.12.5', true );
+	wp_enqueue_script( 'cnc-theme-motion', get_theme_file_uri( 'assets/js/motion.js' ), array( 'gsap-scrolltrigger' ), $version, true );
 }
 add_action( 'wp_enqueue_scripts', 'cnc_enqueue_assets' );
 

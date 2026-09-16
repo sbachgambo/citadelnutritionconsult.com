@@ -68,18 +68,7 @@
 	box-shadow: var(--wp--custom--shadow--sm, 0 2px 10px -4px rgba(21,26,17,0.10));
 }
 
-/* Scroll-reveal (applied by assets/js/interactions.js) */
-.cnc-reveal {
-	opacity: 0;
-	transform: translateY(28px);
-	transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.cnc-reveal.is-visible {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-/* Mouse-tracking 3D tilt (applied by assets/js/interactions.js) */
+/* Mouse-tracking 3D tilt (applied by assets/js/motion.js) */
 .cnc-tilt {
 	transition: transform 0.15s ease-out;
 	transform-style: preserve-3d;
@@ -193,8 +182,46 @@
 	.cnc-cookie-notice { right: 5rem; }
 }
 
+/* ---------------------------------------------------------------------
+   Botanical/fruit line-art motifs — hand-drawn accents (citrus slice,
+   leaf sprig, grain stalk, avocado half) that echo the logo's leaf-and-
+   fruit mark. Purely decorative: aria-hidden, pointer-events:none, and
+   never load-bearing for content. Defs live once in parts/header.html;
+   instances are positioned per-use via inline style on each pattern.
+   Animated by assets/js/motion.js (GSAP); this is the static/no-JS/
+   reduced-motion resting state. ---------------------------------------- */
+.cnc-hero-organics {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 0;
+}
+.organic-shape {
+	position: absolute;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.4;
+	opacity: 0.16;
+	color: var(--wp--preset--color--accent-soft);
+}
+.organic-shape.ink-gold { color: var(--wp--preset--color--gold); }
+.organic-shape.ink-base { color: var(--wp--preset--color--base); opacity: 0.14; }
+.organic-shape.ink-citrus { color: #C97A2E; }
+.cnc-hero-organics + * { position: relative; z-index: 1; }
+@media (max-width: 640px) {
+	.cnc-hero-organics { opacity: 0.7; }
+}
+
+/* Magnetic CTA: JS applies the pull transform; CSS just primes a smooth
+   spring-back and keeps the element as its own compositor layer. */
+.cnc-btn-magnetic {
+	display: inline-block;
+	will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
-	.cnc-reveal { opacity: 1; transform: none; transition: none; }
+	.organic-shape { animation: none !important; }
 	.wp-block-group.has-border,
 	.wp-element-button,
 	.wp-block-button__link,

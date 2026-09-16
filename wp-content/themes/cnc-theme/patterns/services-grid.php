@@ -16,8 +16,8 @@
 	<p class="has-text-align-center">Add, edit, or reorder services from the <strong>Services</strong> section in the WordPress admin — this grid updates automatically.</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:query {"query":{"perPage":6,"pages":0,"offset":0,"postType":"service","order":"asc","orderBy":"menu_order"},"displayLayout":{"type":"flex","columns":3}} -->
-	<div class="wp-block-query">
+	<!-- wp:query {"query":{"perPage":6,"pages":0,"offset":0,"postType":"service","order":"asc","orderBy":"menu_order"},"displayLayout":{"type":"flex","columns":3},"className":"cnc-motion-stagger"} -->
+	<div class="wp-block-query cnc-motion-stagger">
 		<!-- wp:post-template -->
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
 			<div class="wp-block-group has-border-color has-border cnc-service-card" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
