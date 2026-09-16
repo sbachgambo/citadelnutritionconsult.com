@@ -14,7 +14,7 @@
 		<!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:40%">
 			<!-- wp:image {"sizeSlug":"large","style":{"border":{"radius":"12px"}}} -->
-			<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/patterns/about-michelle-teaser.jpg' ) ); ?>" alt="Dietitian Michelle Umeadi" style="border-radius:12px"/></figure>
+			<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/patterns/about-michelle-teaser.jpg' ) ); ?>" alt="Dietitian Michelle Umeadi" style="border-radius:16px"/></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

@@ -14,7 +14,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:paragraph {"fontSize":"small","textColor":"accent"} -->
 				<p class="has-accent-color has-text-color has-small-font-size">WHATSAPP · ₦1,000</p>
 				<!-- /wp:paragraph -->
@@ -42,7 +42,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:paragraph {"fontSize":"small","textColor":"accent"} -->
 				<p class="has-accent-color has-text-color has-small-font-size">WHATSAPP · ₦1,000</p>
 				<!-- /wp:paragraph -->
@@ -77,7 +77,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:paragraph {"fontSize":"small","textColor":"accent"} -->
 				<p class="has-accent-color has-text-color has-small-font-size">WHATSAPP · FREE</p>
 				<!-- /wp:paragraph -->
@@ -106,7 +106,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:paragraph {"fontSize":"small","textColor":"accent"} -->
 				<p class="has-accent-color has-text-color has-small-font-size">FREE TO JOIN</p>
 				<!-- /wp:paragraph -->
@@ -179,7 +179,7 @@
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"sizeSlug":"large","style":{"border":{"radius":"12px"}}} -->
-			<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/patterns/hero-clinic.jpg' ) ); ?>" alt="The Citadel Nutrition Consult clinic" style="border-radius:12px"/></figure>
+			<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/patterns/hero-clinic.jpg' ) ); ?>" alt="The Citadel Nutrition Consult clinic" style="border-radius:16px"/></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
@@ -205,7 +205,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:heading {"level":3} -->
 				<h3>Gym Partnership</h3>
 				<!-- /wp:heading -->
@@ -222,7 +222,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:heading {"level":3} -->
 				<h3>Chef Partnership</h3>
 				<!-- /wp:heading -->

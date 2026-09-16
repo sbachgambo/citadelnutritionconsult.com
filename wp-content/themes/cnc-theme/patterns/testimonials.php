@@ -15,8 +15,8 @@
 	<!-- wp:query {"query":{"perPage":3,"pages":0,"offset":0,"postType":"testimonial","order":"desc","orderBy":"date"},"displayLayout":{"type":"flex","columns":3}} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template -->
-			<!-- wp:group {"style":{"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"backgroundColor":"base","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-base-background-color has-background" style="padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<!-- wp:group {"className":"cnc-quote-card","style":{"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}},"border":{"width":"1px","radius":"16px"}},"borderColor":"border","backgroundColor":"base","layout":{"type":"default"}} -->
+			<div class="wp-block-group cnc-quote-card has-border-color has-background has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:post-excerpt {"excerptLength":40} /-->
 				<!-- wp:post-title {"level":4,"isLink":false,"fontSize":"small"} /-->
 			</div>

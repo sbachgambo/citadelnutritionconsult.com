@@ -23,7 +23,7 @@
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"sizeSlug":"large","style":{"border":{"radius":"12px"}}} -->
-			<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/patterns/about-michelle-credentials.jpg' ) ); ?>" alt="Dietitian Michelle at her desk" style="border-radius:12px"/></figure>
+			<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/patterns/about-michelle-credentials.jpg' ) ); ?>" alt="Dietitian Michelle at her desk" style="border-radius:16px"/></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
@@ -35,7 +35,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:heading {"level":3} --><h3>Registered Dietitian (RDN)</h3><!-- /wp:heading -->
 				<!-- wp:paragraph --><p>Licensed nutrition professional.</p><!-- /wp:paragraph -->
 			</div>
@@ -45,7 +45,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:heading {"level":3} --><h3>15+ Years in Practice</h3><!-- /wp:heading -->
 				<!-- wp:paragraph --><p>1,000+ clients served to date.</p><!-- /wp:paragraph -->
 			</div>
@@ -55,7 +55,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:heading {"level":3} --><h3>Hospital &amp; Corporate Partner</h3><!-- /wp:heading -->
 				<!-- wp:paragraph --><p>Medical Nutrition Therapy for facilities and workplaces without an in-house dietitian.</p><!-- /wp:paragraph -->
 			</div>

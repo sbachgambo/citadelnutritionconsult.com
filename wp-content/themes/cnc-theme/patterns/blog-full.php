@@ -12,7 +12,7 @@
 	<div class="wp-block-query">
 		<!-- wp:post-template -->
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<div class="wp-block-group has-border-color has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:post-featured-image {"height":"160px","style":{"border":{"radius":"6px"}}} /-->
 				<!-- wp:post-title {"level":3,"isLink":true} /-->
 				<!-- wp:post-excerpt /-->

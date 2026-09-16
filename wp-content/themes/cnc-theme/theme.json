@@ -11,13 +11,16 @@
 			"defaultPalette": false,
 			"defaultGradients": false,
 			"palette": [
-				{ "slug": "base", "name": "Base (soft white)", "color": "#FBFBF9" },
-				{ "slug": "surface", "name": "Surface (light gray)", "color": "#F2F2EF" },
-				{ "slug": "contrast", "name": "Contrast (near-black text)", "color": "#1C2321" },
-				{ "slug": "contrast-2", "name": "Contrast muted (body text)", "color": "#44504B" },
-				{ "slug": "accent", "name": "Accent (official brand olive green #8FA84A, darkened for AA contrast)", "color": "#677935" },
-				{ "slug": "accent-2", "name": "Accent light (sage tint)", "color": "#E8ECDA" },
-				{ "slug": "border", "name": "Border", "color": "#E1E1DC" }
+				{ "slug": "base", "name": "Base (warm ivory)", "color": "#FCFBF7" },
+				{ "slug": "surface", "name": "Surface (warm sage-neutral)", "color": "#F4F3EA" },
+				{ "slug": "contrast", "name": "Contrast (near-black text)", "color": "#191F17" },
+				{ "slug": "contrast-2", "name": "Contrast muted (body text)", "color": "#47523F" },
+					{ "slug": "accent", "name": "Accent (official brand olive green #8FA84A, darkened for AA contrast)", "color": "#677935" },
+					{ "slug": "accent-soft", "name": "Accent soft (raw brand green, decorative use only)", "color": "#8FA84A" },
+					{ "slug": "accent-2", "name": "Accent light (sage tint)", "color": "#E8ECDA" },
+					{ "slug": "gold", "name": "Gold (premium supporting accent)", "color": "#AD8A4E" },
+					{ "slug": "gold-soft", "name": "Gold soft (light badge background)", "color": "#F1E7D3" },
+					{ "slug": "border", "name": "Border", "color": "#E3E1D3" }
 			],
 			"gradients": []
 		},
@@ -51,7 +54,17 @@
 		},
 		"custom": {
 			"spacing": {
-				"section-gap": "clamp(3rem, 6vw, 7rem)"
+				"section-gap": "clamp(3.5rem, 7vw, 8.5rem)"
+			},
+			"radius": {
+				"sm": "10px",
+				"md": "16px",
+				"lg": "26px"
+			},
+			"shadow": {
+				"sm": "0 2px 10px -4px rgba(21,26,17,0.10)",
+				"md": "0 18px 40px -16px rgba(21,26,17,0.20)",
+				"lg": "0 30px 60px -20px rgba(21,26,17,0.28)"
 			}
 		}
 	},
@@ -92,7 +105,7 @@
 					"text": "var(--wp--preset--color--base)"
 				},
 				"border": {
-					"radius": "6px"
+					"radius": "10px"
 				},
 				":hover": {
 					"color": {

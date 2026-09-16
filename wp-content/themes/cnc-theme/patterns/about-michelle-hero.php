@@ -32,7 +32,7 @@
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"sizeSlug":"large","style":{"border":{"radius":"12px"}}} -->
-			<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/patterns/about-michelle-hero.jpg' ) ); ?>" alt="Dietitian Michelle Umeadi" style="border-radius:12px"/></figure>
+			<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/patterns/about-michelle-hero.jpg' ) ); ?>" alt="Dietitian Michelle Umeadi" style="border-radius:16px"/></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

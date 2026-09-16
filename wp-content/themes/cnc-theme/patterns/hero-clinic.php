@@ -13,6 +13,10 @@
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
+			<!-- wp:paragraph {"className":"cnc-eyebrow","fontSize":"small","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.14em","fontWeight":"700"}},"textColor":"accent"} -->
+			<p class="cnc-eyebrow has-accent-color has-text-color has-small-font-size" style="font-weight:700;letter-spacing:0.14em;text-transform:uppercase">Citadel Nutrition Consult</p>
+			<!-- /wp:paragraph -->
+
 			<!-- wp:heading {"level":1,"fontSize":"xx-large"} -->
 			<h1 class="has-xx-large-font-size">Clinical nutrition care you can trust</h1>
 			<!-- /wp:heading -->
@@ -37,7 +41,7 @@
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"sizeSlug":"large","style":{"border":{"radius":"12px"}}} -->
-			<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/patterns/hero-clinic.jpg' ) ); ?>" alt="The Citadel Nutrition Consult clinic in Jos, Plateau State" style="border-radius:12px"/></figure>
+			<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/patterns/hero-clinic.jpg' ) ); ?>" alt="The Citadel Nutrition Consult clinic in Jos, Plateau State" style="border-radius:16px"/></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

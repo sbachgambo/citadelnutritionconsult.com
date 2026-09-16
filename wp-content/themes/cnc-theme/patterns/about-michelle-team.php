@@ -21,7 +21,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","backgroundColor":"base","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-background has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<div class="wp-block-group has-border-color has-background has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:heading {"level":3} -->
 				<h3>Registered Dietitians</h3>
 				<!-- /wp:heading -->
@@ -44,7 +44,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"1px","radius":"8px"},"spacing":{"padding":{"top":"1.5rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"borderColor":"border","backgroundColor":"base","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-border-color has-background has-border" style="border-width:1px;border-radius:8px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+			<div class="wp-block-group has-border-color has-background has-border" style="border-width:1px;border-radius:16px;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
 				<!-- wp:heading {"level":3} -->
 				<h3>Culinary Team</h3>
 				<!-- /wp:heading -->
