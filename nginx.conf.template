@@ -1,0 +1,21 @@
+server {
+	listen ${PORT};
+	server_name _;
+	root /usr/share/nginx/html;
+	index index.html;
+
+	# Clean URLs: /services -> services.html, so links can drop .html later
+	# without breaking anything that still uses it.
+	location / {
+		try_files $uri $uri.html $uri/ =404;
+	}
+
+	# Long cache for static assets; HTML stays revalidated so edits show up
+	# immediately after a deploy.
+	location ~* \.(?:css|js|svg|png|jpe?g|webp|gif|ico|woff2?)$ {
+		expires 30d;
+		add_header Cache-Control "public, max-age=2592000, immutable";
+	}
+
+	error_page 404 /404.html;
+}

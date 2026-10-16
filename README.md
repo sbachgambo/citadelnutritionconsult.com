@@ -1,6 +1,8 @@
 # CNC Website Rebuild — Build Notes
 
-Scaffolding for the rebuild described in [cnc-website-rebuild-brief.md](cnc-website-rebuild-brief.md). This is the code deliverable (#1–#2 in brief §8); content, brand assets, and commerce plugin configuration still need to happen in WP admin per §9.
+**2026-10-08 — Pivoted to static HTML/CSS/JS.** The WordPress theme (`wp-content/`) and the WP+MariaDB Railway deployment have been removed. The site now ships entirely from `preview/` as static HTML/CSS/JS, deployed via a small nginx Docker image. **"What's here" and "Local setup" below reflect the current repo.** Every other dated section (Pre-launch audit, Design preview, Client review rounds, Pre-deployment audit, Sitemap audits) is a historical build log from the WordPress-theme era — useful for *why* content and pricing are what they are, but any mention of `theme.json`, Gutenberg patterns, WooCommerce, or wp-admin in those sections reflects removed code, not the current repo.
+
+Scaffolding for the rebuild described in [cnc-website-rebuild-brief.md](cnc-website-rebuild-brief.md). The brief's original plan (§7) called for a block-based WordPress theme specifically so non-technical staff could edit content without code — that requirement is **no longer met** by this static build. Content/price edits now go through a developer (this repo), not wp-admin. Commerce (§4) also changes: `preview/shop.html` uses one Paystack Payment Link per product (same no-cart, off-site-checkout pattern already used for the Learn page's Selar links) instead of WooCommerce + Paystack gateway.
 
 ## Pre-launch audit (2026-09-09)
 
@@ -97,39 +99,46 @@ Everything above was verified by clearing and cleanly re-seeding the local WordP
 ## What's here
 
 ```
-wp-content/
-  themes/cnc-theme/       Block-based (FSE) theme — no hardcoded copy/colors
-    theme.json             Color palette (official brand green), typography, spacing tokens
-    templates/              front-page, page, single, archive, 404, page-about-michelle, page-services, page-communities, page-blog, page-shop, page-learn, page-book
-    parts/                  header.html (site logo, full nav), footer.html (real contact info, nav, Diet Padi links)
-    patterns/               hero-clinic, services-grid, services-full (pricing table), communities-full (groups, partnerships, careers),
-                             blog-full (3-col card grid), testimonials, about-michelle-hero, about-michelle-full (credentials, team,
-                             Diet Talk videos, real results), about-michelle-team, about-michelle-teaser, shop-teaser, learn-teaser,
-                             faq, booking-cta — all using real bundled photography, no placehold.co left
-    assets/images/          brand/ (logo, favicon), patterns/ (4 default hero/teaser photos)
-    assets/css/interactions.css, assets/js/interactions.js   Hover-lift, scroll-reveal, and mouse-tilt motion layer ported from the preview
-  plugins/cnc-core/        Custom post types: Service, Testimonial, FAQ Item, Digital Product
-    includes/post-types.php
-    includes/meta.php       cnc_price / cnc_selar_url meta on Digital Product, bound into the Learn page pattern via core block bindings (WP 6.5+)
-    includes/seed-content.php       Seeds real starter content (Services, Testimonials, FAQ, Digital Products, 3 blog Posts) on activation
-    includes/seed-woocommerce.php   Seeds the real CNC Smartfoods catalog once WooCommerce is detected active — see setup step 6 below
-    seed-assets/             Service photos, e-book covers, blog images, Smartfoods package photos — sideloaded into the Media Library once, then left alone
+preview/                  The entire site — static HTML/CSS/JS, no build step, no backend
+  index.html, services.html, about-michelle.html, shop.html,
+  learn.html, communities.html, book.html, 404.html
+  robots.txt, sitemap.xml   Hand-written — WordPress generated these automatically; a static site needs them as real files
+  assets/
+    css/style.css          Design tokens (color, type, spacing, shadow, radius) + all component styles
+    motion.js               GSAP + ScrollTrigger: scroll-choreographed reveals, botanical-shape drift/parallax, magnetic CTAs
+    nav.js                   Mobile nav toggle
+  images/                   cnc/, michelle/, services/, smartfoods/, ebooks/ — real client photography and product renders
+
+Dockerfile                 nginx:alpine serving preview/ — the whole deployable artifact
+nginx.conf.template        Clean URLs (/services → services.html), asset caching, custom 404
+railway.json                Points Railway at the Dockerfile above
+redirects-map.csv           Retired-domain → new-URL redirect rules (see "Redirect map" below) — still needs to be wired into
+                             whatever edge/host-level redirect mechanism the static host provides (Railway/Netlify/Vercel all differ)
 ```
 
-Services, testimonials, and FAQ patterns pull live from their CPTs via query loops — adding/editing/reordering entries in wp-admin updates the homepage (and the new `/services/` page) automatically. Digital Products work the same way on `/learn/`, with price and the Selar checkout link editable per-post via the sidebar (bound to the button/price text through core block bindings).
-
-**Content seeding:** activating CNC Core inserts the real content gathered from the live sites — 9 Services (each with a relevant photo as its featured image — real client photography where it exists, free stock where it doesn't), 4 Testimonials, 5 FAQ entries, and 9 Digital Products (with real e-book cover art, price, and a Selar link). This runs once (`cnc_core_seeded` option guards it) — it will never overwrite or duplicate on reactivation, and staff can freely edit or delete any of it afterward like any other post.
+Every page shares the same `assets/css/style.css` and `assets/motion.js` via a plain `<link>`/`<script>` tag — there's no templating engine, so a sitewide change (a color, a button style, the nav) means editing `style.css` once; a page-specific change means editing that one `.html` file.
 
 ## Local setup
 
-1. Stand up WordPress + MariaDB (Railway's WordPress template, or any local WP env for preview).
-2. Copy `wp-content/themes/cnc-theme` and `wp-content/plugins/cnc-core` into the site's `wp-content/`.
-3. Activate **CNC Core** (this seeds the starter content — give it a moment, it sideloads ~15 images), then activate the **CNC Theme**.
-4. Appearance → Site Identity: upload `wp-content/themes/cnc-theme/assets/images/brand/cnc-logo.png` as the Custom Logo and `favlogo.png` as the Site Icon. The theme shows its own bundled versions as a fallback until you do, so nothing is blank in the meantime.
-5. Site Editor → Pages: the homepage uses `front-page.html` automatically. Create the pages `/services/`, `/about-michelle/`, `/shop/`, `/learn/`, `/book/`, `/communities/`, `/blog/` and assign the matching custom template (Services Full Page / — / CNC Smartfoods Landing / Learn Landing / Book a Consultation / CNC Communities / Blog Listing) from each page's Template dropdown. Delete the default "Hello world!" post so it doesn't show on the Blog listing.
-6. Install & activate **WooCommerce**. CNC Core detects it automatically (via an `admin_init` check, since activation order between the two plugins isn't guaranteed) and seeds the real CNC Smartfoods catalog the first time you load wp-admin afterward — 7 products published with real prices and package photography (Acha Flour, Acha Grains, Bean Flour, CNC Moringa/Cinnamon tea bags, CNC Zobo Drink, CNC Tigernut Drink), plus 4 more saved as **drafts** with no price (Finger Millet, Plantain Smartmix, Tom Brown, CNC Zobo tea bags) — these aren't sold individually on the live site yet, so they stay hidden from customers until you confirm pricing and publish them. Guarded by its own `cnc_core_woocommerce_seeded` option, so it also won't duplicate on reactivation.
-7. Install the official **Paystack** gateway plugin (`woo-paystack` on WordPress.org, published by Paystack — [wordpress.org/plugins/woo-paystack](https://wordpress.org/plugins/woo-paystack/)). Then: WooCommerce → Settings → Payments → enable Paystack → add your Public and Secret keys (Paystack dashboard → Settings → API Keys & Webhooks). Use the **test** keys first and place a trial order before switching to live keys. Set WooCommerce → Settings → General currency to **Nigerian Naira (₦)** if it isn't already, since every seeded price is in Naira.
-8. Spot-check the seeded Services/Testimonials/FAQ/Digital Products/Smartfoods screens and adjust copy, prices, or publish status as needed.
+No build step, no server required for basic viewing:
+
+1. Open `preview/index.html` directly in a browser to click through the site. The only thing that won't work from `file://` is the clean-URL rewriting (`/services` without `.html`) that nginx provides in production — every page still works via its full `.html` filename.
+2. To test the production nginx behavior (clean URLs, cache headers, the custom 404 page) locally, run any static file server pointed at `preview/` with `try_files $uri $uri.html $uri/ =404;`-style fallback, or build and run the Docker image: `docker build -t cnc-site . && docker run -p 8080:8080 cnc-site`, then visit `http://localhost:8080`.
+3. **Before launch:** generate one Paystack Payment Link per Smartfoods product (Paystack dashboard → Payment Links) and swap each `shop.html` "Buy Now" button's `href="#"` for its real link — same pattern as the Learn page's per-product Selar links, which are already real.
+
+## Railway deployment
+
+The repo is deploy-ready: `railway.json` points Railway at the `Dockerfile`, which builds a tiny `nginx:alpine` image serving `preview/` with clean URLs, far-future asset caching, and the custom 404 page (all verified locally against a real nginx binary, not just read for syntax). Railway injects its own `PORT` at runtime; the nginx config picks it up via the image's built-in `envsubst` templating (`nginx.conf.template` → `/etc/nginx/templates/default.conf.template`), confirmed by running `envsubst` against the template directly.
+
+To actually ship it:
+
+1. In the Railway dashboard, either connect this repo's `main` branch to the existing CNC project (from the earlier WordPress-era setup — it already has `railway.json` wired to the old Dockerfile path, which now points at the static build instead) or create a fresh service pointing at this repo. Either way Railway should auto-detect the Dockerfile build.
+2. Push to `main` (or whatever branch the Railway service tracks) — Railway builds and deploys automatically on push. This step needs your Railway account; it isn't something that can be triggered from here.
+3. Once live on the `*.up.railway.app` URL, attach the real domain (`citadelnutritionconsult.com`) under the service's Settings → Networking → Custom Domain, and point its DNS at Railway per the dashboard's instructions.
+4. Re-check `sitemap.xml`/`robots.txt`/every page's `<link rel="canonical">` and Open Graph `og:url` — all hardcoded to `https://citadelnutritionconsult.com` already, so no edits needed once that domain is actually live, but worth a sanity check against the real URL before telling Google about it.
+5. Wire `redirects-map.csv` into Railway (or at the DNS/registrar level) for the three retired domains once DNS cutover happens — see "Redirect map" below.
+
+**No SSL setup needed on the app side** — Railway terminates TLS at its edge automatically for both the `*.up.railway.app` URL and any custom domain you attach, and this is a plain static nginx server with no backend that could get confused about `http://` vs `https://` the way the old WordPress setup did (hence no `proxy-https.php`-equivalent needed here).
 
 ## Sitemap audit (2026-08-27) — citadelnutritionconsult.com & cnutriconsult.com
 
@@ -154,18 +163,21 @@ Same treatment for the third domain. This one turned up the single biggest conte
 - **`/elementor-2864/`** — a duplicate rendering of the homepage under an Elementor-generated slug. No action beyond a redirect.
 - **`/elementor-landing-page-1821/`** — a 2022-dated tutorial-booking page priced in USD ($90/lesson). Superseded by the current Naira-priced Culinary Services found on `/other-services/` — not migrated as current truth, redirected to `/services/` instead.
 
-## Still pending (brief §9)
+## Still pending
 
-- **Brand palette/logo** — done; theme.json uses the confirmed official brand green (`#8FA84A`, darkened to `#677935` for text/button contrast).
-- **Photography** — done, including the About Michelle full-page template (see the 2026-09-01 audit section below).
-- **Copy** — real content is seeded via CNC Core (see above); still needs a final sign-off pass since it was pulled from live sites and Selar.
-- **Blog — fully migrated, full article text included.** All 30 real posts from dietitianmichelle.com's sitemap are seeded as standard Posts with real title, excerpt, full body content, and featured image (see the 2026-09-01 audit section). One thing to do before launch: delete WordPress's default "Hello world!" post.
-- **Diet Padi app store links** — re-checked 2026-09-01: still no public App Store / Google Play listing found under "Diet Padi" or via dietpadi.com. Still pointing at `https://dietpadi.com` everywhere pending the client supplying real listing URLs.
-- **Selar per-product links** — 7 of 9 seeded Digital Products now link to their real, individually-confirmed Selar checkout page. "Weight Loss Diet Made Easy" was matched 2026-09-01 to the storefront's "Fast Track Weight Loss Diet Plan" (identical ₦5,000/₦10,000 pricing). The remaining 2 (28-Day Challenge bundle, Eat and Don't Eat) still aren't found under those names after paging through the full 40-item storefront twice — pending confirmation with Michelle on whether they're still sold.
-- **Shop product prices — now fully resolved.** Finger Millet (₦3,600), Plantain Smartmix (₦4,200), Tom Brown (₦3,600), and Zobo Infusion/tea bags (₦4,800) were all found and priced by paging through cncsmartfood.com/shop's full catalog on 2026-09-01 — see the audit section below. No more "TBC" pricing anywhere in the Smartfoods catalog.
-- **WooCommerce** — verified working end-to-end on a real install: `seed-woocommerce.php` now publishes the full 11-product Smartfoods catalog (0 drafts) with correct Naira pricing and photography, and the store is taken out of WooCommerce's default "Coming soon" mode automatically (see the 2026-09-01 audit section — this was silently hiding the entire Shop page). Still needs: WooCommerce on the *actual* production site, the Paystack gateway plugin configured with real API keys (see setup step 7), and a live checkout test with real money.
-- **CNC Communities page** — done in both the design preview (`preview/communities.html`) and the WP theme (`page-communities.html` template + `communities-full.php` pattern, nav updated everywhere), with real content from citadelnutritionconsult.com/joinus/: 4 community groups, hospital/clinic partnership, careers. The WhatsApp, Paystack, and Google Forms links on that page are all placeholders (`href="#"`) pending the client's actual URLs.
-- **Redirect map** — see `redirects-map.csv` below; fully resolved, no outstanding judgment calls.
+- **Brand palette/logo** — done; `preview/assets/css/style.css` uses the confirmed official brand green (`#8FA84A`, darkened to `#677935` for text/button contrast).
+- **Photography** — done, including the About Michelle page.
+- **Copy** — real content throughout, pulled from the live source sites and Selar; still needs a final client sign-off pass.
+- **Blog** — not yet rebuilt as static pages. The 30 real posts migrated from dietitianmichelle.com previously lived as WordPress Posts (dynamic, queried from a database); that doesn't exist anymore. They need to become 30 individual static HTML pages (or get dropped/summarized) before "From the blog" on the About Michelle page links anywhere real.
+- **Diet Padi app store links** — still no public App Store / Google Play listing found under "Diet Padi" or via dietpadi.com. Still pointing at `https://dietpadi.com` everywhere pending the client supplying real listing URLs.
+- **Selar per-product links** — 7 of 9 Learn-page digital products link to their real, individually-confirmed Selar checkout page. The remaining 2 (28-Day Challenge bundle, Eat and Don't Eat) still aren't found under those names after paging through the full 40-item storefront twice — pending confirmation with Michelle on whether they're still sold.
+- **Shop checkout — commerce model changed with the static pivot.** `preview/shop.html` no longer mocks a WooCommerce cart; each product has its own "Buy Now" button, same no-cart pattern as the Learn page's Selar links. **All 12 are still `href="#"` placeholders** — generate one Paystack Payment Link per product (Paystack dashboard → Payment Links) and wire in the real URLs before launch.
+- **CNC Communities page** — done (`preview/communities.html`), real content from citadelnutritionconsult.com/joinus/: 4 community groups, hospital/clinic partnership, careers. The WhatsApp, Paystack, and Google Forms links on that page are all still placeholders (`href="#"`) pending the client's actual URLs.
+- **Ongoing content edits** — with no CMS, future text/price/content changes go through a developer editing the HTML directly, not through a non-technical staff admin screen. (A lightweight static CMS, e.g. Decap/Netlify CMS, was discussed and deferred — can be layered on later without a rebuild if this becomes a bottleneck.)
+- **Redirect map** — see `redirects-map.csv` below; URL mapping itself is fully resolved, but it still needs to be wired into whatever redirect mechanism the chosen static host provides (differs from the WP-era plan of a WordPress redirection plugin).
+- **SEO/social meta — done.** Every page now has a real `<meta name="description">`, `<link rel="canonical">`, Open Graph, and Twitter Card tags (the WordPress removal took the old `functions.php`-generated versions with it; these are hand-written per page now). `robots.txt` and `sitemap.xml` are real files in `preview/` for the same reason — WordPress generated both automatically and neither existed anywhere once it was removed. All hardcoded to `https://citadelnutritionconsult.com` since that's the documented target domain — worth a quick sanity check once DNS is actually live there.
+- **Analytics** — no GA4 (or other) snippet wired in yet; none existed on the static site even before today's pass. Add one directly to each page's `<head>` once there's a real measurement ID. No cookie notice exists either — not needed yet since nothing on the site currently sets a cookie, but add one alongside analytics if that changes.
+- **Deploy to Railway** — repo is ready (Dockerfile + `nginx.conf.template` + `railway.json`, see "Railway deployment" above); actually connecting/pushing needs your Railway account access, which isn't something this session can do.
 
 ## Redirect map (retired domains → new site)
 

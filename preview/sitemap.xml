@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://citadelnutritionconsult.com/</loc>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://citadelnutritionconsult.com/services.html</loc>
+		<priority>0.9</priority>
+	</url>
+	<url>
+		<loc>https://citadelnutritionconsult.com/about-michelle.html</loc>
+		<priority>0.8</priority>
+	</url>
+	<url>
+		<loc>https://citadelnutritionconsult.com/shop.html</loc>
+		<priority>0.9</priority>
+	</url>
+	<url>
+		<loc>https://citadelnutritionconsult.com/learn.html</loc>
+		<priority>0.8</priority>
+	</url>
+	<url>
+		<loc>https://citadelnutritionconsult.com/communities.html</loc>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://citadelnutritionconsult.com/book.html</loc>
+		<priority>0.9</priority>
+	</url>
+</urlset>
