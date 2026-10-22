@@ -35,6 +35,9 @@
 	--shadow-lg: 0 30px 60px -20px rgba(21,26,17,0.28);
 
 	--color-citrus: #C97A2E;
+	/* Warm secondary tint, pairs with --color-accent-2 (sage) as an alternate
+	   section background so pages don't read as one unbroken shade of green. */
+	--color-citrus-tint: #FBE8D2;
 }
 
 * { box-sizing: border-box; }
@@ -192,6 +195,16 @@ a:hover { color: var(--color-contrast); }
 
 .btn-light:hover { background: var(--color-gold-soft); border-color: var(--color-gold-soft); color: var(--color-contrast); }
 
+/* Warm citrus variant — used sparingly for the single most energetic CTA on
+   a page (e.g. a WhatsApp/chat prompt), not a replacement for the primary
+   green .btn everywhere. */
+.btn-citrus {
+	background: var(--color-citrus);
+	border-color: var(--color-citrus);
+	color: var(--color-base);
+}
+.btn-citrus:hover { background: #A8651F; border-color: #A8651F; }
+
 .btn-row { display: flex; gap: 0.85rem; flex-wrap: wrap; }
 
 /* Sections */
@@ -201,8 +214,18 @@ section { padding: var(--section-gap) 0; position: relative; }
 .section-dark h1, .section-dark h2, .section-dark h3 { color: var(--color-base); }
 .section-accent {
 	background:
-		radial-gradient(ellipse 60% 90% at 88% 8%, rgba(173,138,78,0.14), transparent 60%),
+		radial-gradient(ellipse 60% 90% at 88% 8%, rgba(173,138,78,0.16), transparent 60%),
+		radial-gradient(ellipse 55% 75% at 8% 100%, rgba(201,122,46,0.14), transparent 60%),
 		var(--color-accent-2);
+	overflow: hidden;
+}
+
+/* Warm alternate to .section-surface — same role (a shaded section break),
+   peach-toned instead of sage so a page doesn't read as a single hue end to end. */
+.section-warm {
+	background:
+		radial-gradient(ellipse 60% 85% at 92% 0%, rgba(201,122,46,0.12), transparent 60%),
+		var(--color-citrus-tint);
 	overflow: hidden;
 }
 
@@ -391,7 +414,7 @@ section { padding: var(--section-gap) 0; position: relative; }
 	position: absolute;
 	top: 0; left: 0; right: 0;
 	height: 3px;
-	background: linear-gradient(90deg, var(--color-accent-soft), var(--color-gold) 50%, var(--color-accent-soft));
+	background: linear-gradient(90deg, var(--color-accent-soft), var(--color-citrus) 35%, var(--color-gold) 65%, var(--color-accent-soft));
 }
 .site-footer .wrap { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
 @media (min-width: 800px) {
@@ -545,11 +568,24 @@ section { padding: var(--section-gap) 0; position: relative; }
 .whatsapp-fab:hover {
 	transform: translateY(-3px) scale(1.05);
 	box-shadow: var(--shadow-lg);
+	animation: none;
 }
 .whatsapp-fab svg { width: 30px; height: 30px; display: block; }
 @media (max-width: 720px) {
 	.whatsapp-fab { right: 1rem; bottom: 1rem; width: 52px; height: 52px; }
 	.whatsapp-fab svg { width: 26px; height: 26px; }
+}
+
+/* Gentle idle bob — small, slow, always-on sign of life on the one element
+   that's present on every page. Pauses on hover so it doesn't fight the
+   hover lift above. */
+@keyframes gentle-bob {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-6px); }
+}
+.whatsapp-fab { animation: gentle-bob 2.6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+	.whatsapp-fab { animation: none; }
 }
 
 /* ---------------------------------------------------------------------
@@ -572,7 +608,7 @@ section { padding: var(--section-gap) 0; position: relative; }
 	fill: none;
 	stroke: currentColor;
 	stroke-width: 1.4;
-	opacity: 0.16;
+	opacity: 0.22;
 	color: var(--color-accent-soft);
 }
 .organic-shape.ink-gold { color: var(--color-gold); }
